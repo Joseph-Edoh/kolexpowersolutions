@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolex Power Solutions - Home</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--brand:#E8431A;--brand-dark:#C03510;--brand-bg:rgba(232,67,26,0.1);--brand-border:rgba(232,67,26,0.25);}
+body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .3s,color .3s;}
+body.dark{--bg:#111111;--bg2:#1A1A1A;--bg3:#242424;--border:#2E2E2E;--text:#F0F0F0;--muted:#888888;--muted2:#444444;--card-bg:#1A1A1A;--nav-bg:rgba(17,17,17,0.97);--logo-fill:#FFFFFF;}
+body.light{--bg:#F7F5F2;--bg2:#FFFFFF;--bg3:#EEEAE4;--border:#E0DDD8;--text:#1A1A1A;--muted:#666666;--muted2:#BBBBBB;--card-bg:#FFFFFF;--nav-bg:rgba(247,245,242,0.97);--logo-fill:#1A1A1A;}
+body{background:var(--bg);color:var(--text);}
+
+/* TOGGLE */
+.theme-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.tog{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;white-space:nowrap;}
+.tog svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.tog.on{background:var(--brand);color:#fff;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(10px);position:sticky;top:0;z-index:200;gap:16px;}
+.nav-logo svg text,.nav-logo svg{transition:fill .3s;}
+.nav-logo svg {width:100%;height:auto;max-width:110px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.nav-cta{background:var(--brand);color:#fff;padding:9px 20px;border-radius:3px;font-size:13px;font-weight:600;text-decoration:none;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;flex-direction:column;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:15px;padding:10px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;}
+
+/* DROPDOWN MENU */
+.dropdown{position:relative;display:inline-block;}
+.dropbtn{background:none;border:none;color:var(--muted);text-decoration:none;font-size:13px;cursor:pointer;padding:0;}
+.dropdown-content{display:none;position:absolute;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:8px 0;min-width:180px;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.dropdown-content a{color:var(--text);text-decoration:none;font-size:13px;padding:8px 16px;display:block;transition:background .2s;}
+.dropdown-content a:hover{background:var(--bg3);}
+.dropdown:hover .dropdown-content{display:block;}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:70px 48px;gap:56px;min-height:88vh;position:relative;overflow:hidden;}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:20px;}
+.e-line{width:24px;height:2px;background:var(--brand);}
+.e-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+h1{font-size:clamp(44px,5.5vw,80px);font-weight:900;line-height:.95;letter-spacing:-2px;color:var(--text);margin-bottom:12px;}
+h1 .accent{color:var(--brand);display:block;}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.75;max-width:440px;margin:18px 0 32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-p{background:var(--brand);color:#fff;padding:13px 24px;border-radius:3px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-p:hover{background:var(--brand-dark);}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:13px 24px;border-radius:3px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-o:hover{border-color:var(--muted);}
+.contact-strip{display:flex;gap:20px;flex-wrap:wrap;}
+.cpill{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);}
+.cpill svg{width:13px;height:13px;stroke:var(--brand);fill:none;stroke-width:2;flex-shrink:0;}
+
+/* HERO CARDS */
+.hero-cards{display:flex;flex-direction:column;gap:10px;}
+.hc{background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:20px 22px;transition:background .3s,border .3s;}
+.hc.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.hc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.hc-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.live{display:flex;align-items:center;gap:5px;font-size:11px;color:#4ade80;}
+.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.hc-val{font-size:36px;font-weight:900;color:var(--brand);letter-spacing:-1px;line-height:1;}
+.hc-val span{font-size:15px;color:var(--muted);font-weight:300;}
+.hc-sub{font-size:12px;color:var(--muted);margin-top:5px;}
+.prog{height:3px;background:var(--border);border-radius:2px;margin-top:12px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--brand);border-radius:2px;}
+.mini-bars{display:flex;align-items:flex-end;gap:4px;height:36px;margin-top:10px;}
+.mb{width:8px;border-radius:1px;background:var(--border);}
+.mb.on{background:var(--brand);}
+.hc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hc-cert{display:flex;align-items:center;justify-content:space-between;}
+.cert-badge{width:38px;height:38px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cert-badge svg{width:18px;height:18px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card-bg);transition:background .3s;}
+.sc{padding:30px 40px;border-right:1px solid var(--border);}
+.sc:last-child{border-right:none;}
+.sn{font-size:44px;font-weight:900;color:var(--text);line-height:1;letter-spacing:-1px;}
+.sn em{color:var(--brand);font-style:normal;}
+.sl{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* SERVICES */
+.services{padding:80px 48px;}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.eline{width:18px;height:2px;background:var(--brand);}
+.etag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+.sec-h{font-size:clamp(32px,4vw,50px);font-weight:900;color:var(--text);letter-spacing:-1.5px;line-height:1.05;margin-bottom:40px;}
+.svc-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr;border:1px solid var(--border);border-radius:6px;overflow:hidden;gap:1px;background:var(--border);}
+.svc{background:var(--card-bg);padding:30px 26px;transition:background .25s;position:relative;}
+.svc:hover{background:var(--bg3);}
+.svc-n{font-size:10px;letter-spacing:2px;color:var(--muted2);font-weight:600;margin-bottom:18px;}
+.svc-ico{width:40px;height:40px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.svc-ico svg{width:18px;height:18px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.svc h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.3px;}
+.svc p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+.stags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px;}
+.st{font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);}
+.svc-badge{position:absolute;top:16px;right:16px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+.svc-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:var(--brand);text-decoration:none;border-top:1px solid var(--border);padding-top:16px;width:100%;}
+
+/* WHY */
+.why{padding:80px 48px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .3s;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.why h2{font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--text);letter-spacing:-1.5px;line-height:1.05;margin-bottom:14px;}
+.why-intro{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:26px;}
+.why-pts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.wpt{display:flex;gap:9px;align-items:flex-start;}
+.wck{width:18px;height:18px;border-radius:3px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.wck svg{width:10px;height:10px;stroke:var(--brand);fill:none;stroke-width:2.5;}
+.wpt strong{font-size:13px;font-weight:600;color:var(--text);display:block;margin-bottom:1px;}
+.wpt span{font-size:12px;color:var(--muted);}
+.why-cards{display:flex;flex-direction:column;gap:10px;}
+.wc{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:18px 20px;transition:background .3s;}
+.wc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.wn{font-size:32px;font-weight:900;color:var(--brand);letter-spacing:-1px;}
+.wl{font-size:11px;color:var(--muted);margin-top:2px;}
+.quote-row{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.stars{color:var(--brand);font-size:14px;letter-spacing:2px;margin-bottom:5px;}
+.qt{font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;}
+.qa{font-size:11px;color:var(--muted2);margin-top:7px;}
+.rb{font-size:34px;font-weight:900;color:var(--brand);letter-spacing:-1px;text-align:right;white-space:nowrap;}
+.rl{font-size:11px;color:var(--muted);text-align:right;}
+.cert-row{display:flex;align-items:center;gap:12px;}
+.cert-ico{width:38px;height:38px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cert-ico svg{width:18px;height:18px;stroke:var(--brand);fill:none;stroke-width:1.7;}
+.cert-row strong{font-size:13px;font-weight:600;color:var(--text);display:block;}
+.cert-row span{font-size:11px;color:var(--muted);}
+
+/* GALLERY */
+.gallery{padding:80px 48px;}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:180px 180px;gap:8px;margin:36px 0 24px;}
+.gp{border-radius:5px;background:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;position:relative;overflow:hidden;transition:background .3s;}
+.gp.tall{grid-row:span 2;}
+.gp svg{width:28px;height:28px;stroke:var(--border);fill:none;stroke-width:1.5;}
+.gp-lbl{font-size:10px;color:var(--muted2);letter-spacing:.5px;text-align:center;padding:0 12px;}
+.gp-cap{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.65));font-size:11px;color:rgba(255,255,255,.75);}
+.gal-cta{text-align:center;}
+
+/* TESTI */
+.testi{padding:80px 48px;background:var(--bg2);border-top:1px solid var(--border);transition:background .3s;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;}
+.tc{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:24px 20px;position:relative;transition:background .3s;}
+.tc::before{content:'\201C';font-size:64px;font-weight:900;color:rgba(232,67,26,0.08);position:absolute;top:6px;left:14px;line-height:1;font-family:serif;}
+.tc p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;position:relative;z-index:1;}
+.tc-auth{margin-top:16px;display:flex;align-items:center;gap:9px;}
+.av{width:32px;height:32px;border-radius:50%;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--brand);flex-shrink:0;}
+.tc-name{font-size:13px;font-weight:600;color:var(--text);}
+.tc-loc{font-size:10px;color:var(--muted);}
+
+/* CTA */
+.cta{padding:80px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border);}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(232,67,26,0.06),transparent 70%);pointer-events:none;}
+.cta h2{font-size:clamp(38px,5vw,64px);font-weight:900;color:var(--text);letter-spacing:-2px;line-height:.95;margin-bottom:12px;}
+.cta h2 em{color:var(--brand);font-style:normal;}
+.cta p{font-size:15px;color:var(--muted);margin-bottom:32px;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-info{margin-top:24px;font-size:12px;color:var(--muted2);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px 48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;background:var(--card-bg);transition:background .3s;}
+.foot-links{display:flex;gap:20px;list-style:none;justify-content:center;}
+.foot-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--text);}
+.foot-r{text-align:right;font-size:11px;color:var(--muted2);line-height:1.7;}
+.wa-float{position:fixed;bottom:22px;right:22px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;}
+.wa-float svg{width:24px;height:24px;fill:white;}
+
+/* ── TABLET (≤900px) ── */
+@media(max-width:900px){
+  nav{padding:0 28px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{grid-template-columns:1fr;padding:48px 28px;gap:36px;min-height:auto;}
+  .hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .hc-row{grid-template-columns:1fr 1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .sc:nth-child(2){border-right:none;}
+  .sc:nth-child(3){border-top:1px solid var(--border);}
+  .sc:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+  .services{padding:56px 28px;}
+  .svc-grid{grid-template-columns:1fr;gap:1px;}
+  .why{padding:56px 28px;}
+  .why-grid{grid-template-columns:1fr;gap:40px;}
+  .why-pts{grid-template-columns:1fr 1fr;}
+  .gallery{padding:56px 28px;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:160px 160px 160px;}
+  .gp.tall{grid-row:span 2;}
+  .testi{padding:56px 28px;}
+  .testi-grid{grid-template-columns:1fr 1fr;}
+  .tc:last-child{grid-column:1/-1;}
+  .cta{padding:60px 28px;}
+  footer{grid-template-columns:1fr;text-align:center;gap:20px;padding:28px;}
+  .foot-links{justify-content:center;}
+  .foot-r{text-align:center;}
+}
+
+/* ── MOBILE (≤600px) ── */
+@media(max-width:600px){
+  nav{padding:0 18px;height:60px;}
+  .tog{padding:6px 10px;font-size:11px;}
+  .nav-cta{padding:7px 14px;font-size:12px;}
+  .mobile-menu{padding:12px 18px;}
+  .hero{padding:36px 18px;gap:28px;}
+  h1{letter-spacing:-1.5px;}
+  .hero-sub{font-size:14px;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .btn-p,.btn-o{width:100%;justify-content:center;}
+  .contact-strip{flex-direction:column;gap:12px;}
+  .hero-cards{grid-template-columns:1fr;gap:10px;}
+  .hc-row{grid-template-columns:1fr 1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .sc{padding:22px 18px;}
+  .sn{font-size:36px;}
+  .services{padding:44px 18px;}
+  .sec-h{margin-bottom:28px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .why{padding:44px 18px;}
+  .why-pts{grid-template-columns:1fr;}
+  .gallery{padding:44px 18px;}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:auto;}
+  .gp{height:150px;}
+  .gp.tall{grid-row:span 1;height:150px;}
+  .testi{padding:44px 18px;}
+  .testi-grid{grid-template-columns:1fr;gap:10px;}
+  .tc:last-child{grid-column:auto;}
+  .cta{padding:44px 18px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns .btn-p,.cta-btns .btn-o{width:100%;max-width:320px;justify-content:center;}
+  footer{padding:24px 18px;gap:16px;}
+  .foot-links{flex-wrap:wrap;gap:12px;justify-content:center;}
+  .wc-row{grid-template-columns:1fr 1fr;}
+  .quote-row{flex-direction:column;align-items:flex-start;gap:8px;}
+  .rb{text-align:left;}
+  .rl{text-align:left;}
+  .theme-toggle{
+    display:flex;
+   
+  }
+  .nav-cta{display:none;}
+  .mobile-menu{
+    position:absolute;
+    top:auto;
+    left:0;
+    width:100vw;
+    box-sizing:border-box;
+    z-index: 9999;
+  }
+}
+
+/* ── LARGE (≥1280px) ── */
+@media(min-width:1280px){
+  nav{padding:0 72px;}
+  .hero{padding:80px 72px;}
+  .services,.why,.gallery,.testi,.cta{padding-left:72px;padding-right:72px;}
+  .stats .sc{padding:36px 72px;}
+  footer{padding:36px 72px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg id="nav-svg" width="120" height="35" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="lk" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="ll" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" id="ls" fill="#666666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Services</a>
+      <div class="dropdown-content">
+        <a href="kolex_solar_page.html">Solar Installation</a>
+        <a href="kolex_wiring_page.html">Wiring</a>
+        <a href="cctv.html">CCTV</a>
+      </div>
+    </li>
+    <li><a href="kolex_about_page.html">About</a></li>
+    <li><a href="kolex_gallery_page.html">Gallery</a></li>
+    <li><a href="kolex_contact_quote_page.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="theme-toggle">
+      <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+      </div>
+      <div class="tog" id="btn-l" onclick="setTheme('light')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+      </div>
+    </div>
+    <a href="tel:+2347067448460" class="nav-cta">Get a Quote</a>
+    <div class="hamburger" onclick="toggleMenu()" id="ham">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="index.html">Home</a>
+  <a href="#" style="font-weight:600;">Services</a>
+  <a href="kolex_solar_page.html" style="padding-left:20px;">- Solar Installation</a>
+  <a href="kolex_wiring_page.html" style="padding-left:20px;">- Wiring</a>
+  <a href="#" style="padding-left:20px;">- CCTV</a>
+  <a href="#">About</a>
+  <a href="#">Gallery</a>
+  <a href="#">Contact</a>
+  <a href="tel:+2347067448460" style="color:var(--brand);font-weight:600;">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">
+      <div class="e-line"></div>
+      <span class="e-text">Abuja's Trusted Power Experts</span>
+    </div>
+    <h1>Power Your<span class="accent">World.</span></h1>
+    <p class="hero-sub">Solar installation, professional electrical wiring and CCTV security solutions for homes and businesses across Abuja, FCT and beyond.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/2347067448460" class="btn-p">
+        <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="#gallery" class="btn-o">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        View Projects
+      </a>
+    </div>
+    <div class="contact-strip">
+      <div class="cpill"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+234 706 744 8460</div>
+      <div class="cpill"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>kolexpowersolutions@gmail.com</div>
+      <div class="cpill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Wuye Market, Abuja</div>
+    </div>
+  </div>
+  <div class="hero-cards">
+    <div class="hc accent">
+      <div class="hc-top"><span class="hc-lbl">System Status</span><div class="live">Live</div></div>
+      <div class="hc-val">4.8 <span>kW output</span></div>
+      <div class="hc-sub">Peak solar generation · Clear sky</div>
+      <div class="prog"><div class="prog-fill" style="width:96%"></div></div>
+    </div>
+    <div class="hc-row">
+      <div class="hc">
+        <div class="hc-lbl" style="margin-bottom:8px">Projects done</div>
+        <div class="hc-val">150<span style="font-size:16px">+</span></div>
+        <div class="mini-bars"><div class="mb" style="height:12px"></div><div class="mb on" style="height:20px"></div><div class="mb on" style="height:16px"></div><div class="mb on" style="height:30px"></div><div class="mb on" style="height:22px"></div><div class="mb on" style="height:36px"></div><div class="mb on" style="height:26px"></div></div>
+      </div>
+      <div class="hc">
+        <div class="hc-lbl" style="margin-bottom:8px">Satisfaction</div>
+        <div class="hc-val">98<span style="font-size:16px">%</span></div>
+        <div class="prog" style="margin-top:14px"><div class="prog-fill" style="width:98%"></div></div>
+        <div class="hc-sub" style="margin-top:7px">Client feedback</div>
+      </div>
+    </div>
+    <div class="hc hc-cert">
+      <div>
+        <div class="hc-lbl" style="margin-bottom:4px">RC Number</div>
+        <div style="font-size:15px;font-weight:700;color:var(--text)">9344845</div>
+        <div class="hc-sub" style="margin-top:3px">CAC Registered · Licensed</div>
+      </div>
+      <div class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="sc"><div class="sn">150<em>+</em></div><div class="sl">Projects completed</div></div>
+  <div class="sc"><div class="sn">7<em>+</em></div><div class="sl">Years of experience</div></div>
+  <div class="sc"><div class="sn">200<em>+</em></div><div class="sl">Happy clients</div></div>
+  <div class="sc"><div class="sn">15<em>+</em></div><div class="sl">Areas served</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="eyebrow"><div class="eline"></div><span class="etag">What we do</span></div>
+  <h2 class="sec-h">Three Services.<br>One Trusted Company.</h2>
+  <div class="svc-grid">
+    <div class="svc">
+      <span class="svc-badge">⚡ Flagship</span>
+      <div class="svc-n">01</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+      <h3>Solar Installation</h3>
+      <p>Off-grid, hybrid and grid-tied solar systems for homes and businesses. We handle everything from site assessment to commissioning using top-quality panels, inverters and batteries.</p>
+      <div class="stags"><span class="st">On-grid</span><span class="st">Off-grid</span><span class="st">Hybrid</span><span class="st">Maintenance</span></div>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc">
+      <div class="svc-n">02</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>Electrical Wiring</h3>
+      <p>New builds, renovations and rewiring for residential and commercial properties. Safe, neat and certified to standard.</p>
+      <div class="stags"><span class="st">Residential</span><span class="st">Commercial</span></div>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc">
+      <div class="svc-n">03</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+      <h3>CCTV Installation</h3>
+      <p>Protect your property 24/7 with professional cameras. Monitor live from your phone anywhere in the world.</p>
+      <div class="stags"><span class="st">Home</span><span class="st">Business</span><span class="st">Remote</span></div>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why-grid">
+    <div>
+      <div class="eyebrow" style="margin-bottom:14px"><div class="eline"></div><span class="etag">Why choose us</span></div>
+      <h2>Built on Trust.<br>Driven by Quality.</h2>
+      <p class="why-intro">Since our founding, Kolex Power Solutions has been the go-to name for homeowners and businesses in Abuja who want power solutions done right — the first time, every time.</p>
+      <div class="why-pts">
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Certified technicians</strong><span>Trained, experienced engineers</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Quality materials</strong><span>Certified equipment only</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>On-time delivery</strong><span>We respect your schedule</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>After-sales support</strong><span>Available after installation</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Transparent pricing</strong><span>No hidden costs</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Safety first</strong><span>Meets all safety standards</span></div></div>
+      </div>
+    </div>
+    <div class="why-cards">
+      <div class="wc-row">
+        <div class="wc"><div class="wn">150+</div><div class="wl">Projects done</div></div>
+        <div class="wc"><div class="wn">98%</div><div class="wl">Satisfaction</div></div>
+      </div>
+      <div class="wc quote-row">
+        <div><div class="stars">★★★★★</div><p class="qt">"Best solar company in Abuja — professional from start to finish. Zero issues after 10 months."</p><div class="qa">— Mrs. Okonkwo, Wuye, Abuja</div></div>
+        <div><div class="rb">5.0</div><div class="rl">Avg rating</div></div>
+      </div>
+      <div class="wc cert-row">
+        <div class="cert-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><strong>CAC Registered · RC: 9344845</strong><span>Officially licensed to operate in Nigeria</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="eyebrow"><div class="eline"></div><span class="etag">Our work</span></div>
+  <h2 class="sec-h">Real Projects.<br>Real Results.</h2>
+  <div class="gal-grid">
+    <div class="gp tall">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+      <div class="gp-lbl">Solar rooftop install</div>
+      <div class="gp-cap">5kVA Hybrid · Wuye, Abuja</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="gp-lbl">Wiring project</div>
+      <div class="gp-cap">Full house wiring · Gwarinpa</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <div class="gp-lbl">CCTV setup</div>
+      <div class="gp-cap">8-camera CCTV · Maitama</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
+      <div class="gp-lbl">Inverter room</div>
+      <div class="gp-cap">Battery bank · Jabi</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="gp-lbl">DB installation</div>
+      <div class="gp-cap">DB upgrade · Kubwa</div>
+    </div>
+  </div>
+  <div class="gal-cta"><a href="#" class="btn-o">View Full Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" style="display:inline;vertical-align:middle;margin-left:4px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="eyebrow"><div class="eline"></div><span class="etag">Testimonials</span></div>
+  <h2 class="sec-h">What Our Clients Say.</h2>
+  <div class="testi-grid">
+    <div class="tc"><div class="stars">★★★★★</div><p>They installed our 5kVA solar system in one day — zero issues after 8 months. Very professional. NEPA can go and rest!</p><div class="tc-auth"><div class="av">AO</div><div><div class="tc-name">Mr. Adebayo Okafor</div><div class="tc-loc">Wuye, Abuja · Solar</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>Kolex wired our entire 3-floor building in under a week. Very neat work. They even cleaned up after themselves!</p><div class="tc-auth"><div class="av">CI</div><div><div class="tc-name">Mrs. Chiamaka Ibe</div><div class="tc-loc">Gwarinpa, Abuja · Wiring</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>Our CCTV was installed quickly and I can monitor my shop from my phone in Lagos. Very reliable. Highly recommended!</p><div class="tc-auth"><div class="av">EM</div><div><div class="tc-name">Engr. Emmanuel Mike</div><div class="tc-loc">Maitama, Abuja · CCTV</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="eyebrow" style="justify-content:center;margin-bottom:14px"><div class="eline"></div><span class="etag">Get started today</span><div class="eline"></div></div>
+  <h2>Ready to Power<br><em>Your Property?</em></h2>
+  <p>Free site assessment. No commitment, no hidden fees — just expert advice.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/2347067448460" class="btn-p">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <a href="tel:+2347067448460" class="btn-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+234 706 744 8460</a>
+    <a href="mailto:kolexpowersolutions@gmail.com" class="btn-o">Email Us</a>
+  </div>
+  <div class="cta-info">Shop H2G211, Wuye Market, Abuja, FCT · kolexpowersolutions@gmail.com</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="100" height="30" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fk" fill="#FFFFFF">K</text>
+    <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+    <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+    <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fl" fill="#FFFFFF">lex</text>
+    <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" id="fs" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+  </svg>
+  <ul class="foot-links">
+    <li><a href="#">Solar</a></li><li><a href="#">Wiring</a></li><li><a href="#">CCTV</a></li><li><a href="#">Gallery</a></li><li><a href="#">Contact</a></li>
+  </ul>
+  <div class="foot-r">RC: 9344845 · CAC Registered<br>© 2025 Kolex Power Solutions Ltd<br>Abuja, FCT, Nigeria</div>
+</footer>
+
+<a href="https://wa.me/2347067448460" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+</a>
+
+<script>
+function setTheme(t){
+  document.body.className=t;
+  document.getElementById('btn-d').className='tog'+(t==='dark'?' on':'');
+  document.getElementById('btn-l').className='tog'+(t==='light'?' on':'');
+  const lc=t==='dark'?'#FFFFFF':'#1A1A1A';
+  ['lk','ll','fk','fl'].forEach(id=>{const e=document.getElementById(id);if(e)e.setAttribute('fill',lc);});
+}
+function toggleMenu(){
+  const m=document.getElementById('mmenu');
+  m.classList.toggle('open');
+}
+document.body.className='dark';
+</script>
+</body>
+</html>

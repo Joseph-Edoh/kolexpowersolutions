@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolex Power Solutions - Solar Installation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--brand:#E8431A;--brand-dark:#C03510;--brand-bg:rgba(232,67,26,0.08);--brand-border:rgba(232,67,26,0.22);}
+body{font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .3s,color .3s;}
+body.dark{--bg:#0E0E0E;--bg2:#161616;--bg3:#1F1F1F;--border:#282828;--text:#EFEFEF;--muted:#7A7A7A;--muted2:#3A3A3A;--card:#161616;--nav-bg:rgba(14,14,14,0.96);--logo-fill:#FFF;}
+body.light{--bg:#F5F3EF;--bg2:#FFFFFF;--bg3:#EDEBE6;--border:#E2DED8;--text:#181818;--muted:#636363;--muted2:#C8C4BC;--card:#FFFFFF;--nav-bg:rgba(245,243,239,0.96);--logo-fill:#181818;}
+body{background:var(--bg);color:var(--text);}
+
+/* THEME TOGGLE */
+.theme-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.tog{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.tog svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.tog.on{background:var(--brand);color:#fff;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;gap:16px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-links a.active{color:var(--brand);}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.nav-cta{background:var(--brand);color:#fff;padding:8px 20px;border-radius:3px;font-size:13px;font-weight:500;text-decoration:none;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;flex-direction:column;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:4px;z-index:1000;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:15px;padding:10px 0;border-bottom:1px solid var(--border);}
+.nav-logo {flex-shrink:0;}
+.nav-logo svg {width:100%;height:auto;max-width:110px;}
+
+/* HERO */
+.solar-hero{padding:72px 48px 60px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.solar-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,67,26,0.07) 0%,transparent 65%);pointer-events:none;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:24px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--brand);}
+.breadcrumb svg{width:12px;height:12px;stroke:var(--muted2);fill:none;stroke-width:2;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--brand);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.solar-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,7vw,92px);font-weight:900;line-height:.92;letter-spacing:-1px;color:var(--text);margin-bottom:20px;}
+.solar-hero h1 em{color:var(--brand);font-style:normal;display:block;}
+.hero-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;font-weight:300;margin-bottom:36px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-p{background:var(--brand);color:#fff;padding:14px 28px;border-radius:3px;font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-p:hover{background:var(--brand-dark);}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:14px 28px;border-radius:3px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-o:hover{border-color:var(--muted);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.hs{background:var(--card);padding:20px 24px;}
+.hs-n{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:var(--brand);line-height:1;letter-spacing:-.5px;}
+.hs-l{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* INTRO SECTION */
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--border);}
+.intro-text{padding:72px 48px;border-right:1px solid var(--border);}
+.intro-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,52px);font-weight:800;color:var(--text);line-height:1.05;margin-bottom:20px;letter-spacing:-.5px;}
+.intro-text p{font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:16px;}
+.pain-points{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+.pain{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--bg3);border-radius:5px;border:1px solid var(--border);}
+.pain-ico{width:32px;height:32px;border-radius:5px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pain-ico svg{width:16px;height:16px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.pain strong{font-size:13px;font-weight:500;color:var(--text);display:block;margin-bottom:2px;}
+.pain span{font-size:12px;color:var(--muted);}
+.intro-visual{padding:72px 48px;background:var(--bg2);display:flex;flex-direction:column;gap:16px;}
+.saving-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;}
+.saving-card.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.sc-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.sc-val{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--brand);line-height:1;letter-spacing:-.5px;}
+.sc-val span{font-size:16px;font-family:'DM Sans',sans-serif;color:var(--muted);font-weight:300;}
+.sc-sub{font-size:12px;color:var(--muted);margin-top:6px;}
+.sc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.prog{height:3px;background:var(--border);border-radius:2px;margin-top:12px;overflow:hidden;}
+.prog-f{height:100%;background:var(--brand);border-radius:2px;}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cmp{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.cmp.bad{border-color:rgba(100,100,100,.3);}
+.cmp-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.cmp-label.red{color:#E84343;}
+.cmp-label.green{color:#4ade80;}
+.cmp-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);padding:3px 0;}
+.cmp-item::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.cmp-item.bad::before{background:#888;}
+.cmp-item.good::before{background:var(--brand);}
+
+/* SECTION LABEL */
+.sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.sec-line{width:18px;height:2px;background:var(--brand);}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4.5vw,54px);font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.5px;margin-bottom:40px;}
+
+/* SYSTEM TYPES */
+.systems{padding:72px 48px;border-bottom:1px solid var(--border);}
+.sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.sys{background:var(--card);padding:32px 28px;position:relative;transition:background .25s;cursor:default;}
+.sys:hover{background:var(--bg3);}
+.sys-num{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:var(--border);line-height:1;margin-bottom:16px;}
+.sys-ico{width:44px;height:44px;border-radius:8px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.sys-ico svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.7;}
+.sys h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.3px;}
+.sys p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+.sys-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px;}
+.sys-tag{font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);}
+.sys-badge{position:absolute;top:18px;right:18px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+.sys-best{position:absolute;top:0;left:0;right:0;height:3px;background:var(--brand);}
+
+/* PROCESS */
+.process{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:0;}
+.step{background:var(--card);padding:28px 24px;position:relative;transition:background .25s;}
+.step:hover{background:var(--bg3);}
+.step-n{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;color:var(--brand-bg);border:2px solid var(--brand-border);border-radius:6px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--brand);margin-bottom:16px;}
+.step h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.step p{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;}
+.step-connector{position:absolute;top:38px;right:-1px;width:24px;height:24px;background:var(--brand);display:flex;align-items:center;justify-content:center;z-index:2;}
+.step-connector svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2.5;}
+.process-steps .step:last-child .step-connector{display:none;}
+
+/* COMPONENTS */
+.components{padding:72px 48px;border-bottom:1px solid var(--border);}
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.comp-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:22px 20px;transition:background .25s;}
+.comp-card:hover{background:var(--bg3);}
+.comp-ico{width:40px;height:40px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.comp-ico svg{width:20px;height:20px;stroke:var(--brand);fill:none;stroke-width:1.7;}
+.comp-card h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.comp-card p{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300;}
+.brand-tag{display:inline-block;margin-top:10px;font-size:10px;color:var(--brand);border:1px solid var(--brand-border);padding:2px 8px;border-radius:3px;}
+
+/* PACKAGES */
+.packages{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.pkg{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px 20px;position:relative;transition:background .25s;}
+.pkg:hover{background:var(--bg3);}
+.pkg.featured{border-color:var(--brand-border);border-width:2px;}
+.pkg-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 12px;border-radius:0 0 6px 6px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
+.pkg-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.3px;}
+.pkg-size{font-size:12px;color:var(--brand);font-weight:500;margin-bottom:16px;}
+.pkg-powers{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;}
+.pkg-items{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.pkg-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);}
+.pkg-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0;}
+.pkg-cta{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:all .2s;text-decoration:none;display:block;}
+.pkg.featured .pkg-cta{background:var(--brand);border-color:var(--brand);color:#fff;}
+.pkg-cta:hover{border-color:var(--brand);color:var(--brand);}
+.pkg.featured .pkg-cta:hover{background:var(--brand-dark);}
+
+/* CALCULATOR */
+.calculator{padding:72px 48px;border-bottom:1px solid var(--border);}
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border);}
+.calc-left{background:var(--card);padding:36px 32px;}
+.calc-right{background:var(--bg2);padding:36px 32px;}
+.calc-intro{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:28px;}
+.app-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+.app-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:5px;gap:8px;}
+.app-name{font-size:13px;color:var(--text);}
+.app-qty{display:flex;align-items:center;gap:8px;}
+.app-btn{width:24px;height:24px;border-radius:3px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1;}
+.app-btn:hover{border-color:var(--brand);color:var(--brand);}
+.app-count{font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;}
+.calc-result{margin-top:8px;}
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;margin-bottom:12px;}
+.result-card.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.res-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.res-val{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--brand);line-height:1;letter-spacing:-.5px;}
+.res-unit{font-size:14px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--muted);}
+.res-sub{font-size:12px;color:var(--muted);margin-top:5px;}
+.res-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.calc-cta{width:100%;background:var(--brand);border:none;color:#fff;padding:13px;border-radius:3px;font-size:14px;font-weight:500;cursor:pointer;margin-top:8px;transition:background .2s;font-family:'DM Sans',sans-serif;}
+.calc-cta:hover{background:var(--brand-dark);}
+.calc-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5;}
+
+/* BENEFITS */
+.benefits{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ben{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px 20px;display:flex;gap:14px;align-items:flex-start;}
+.ben-ico{width:38px;height:38px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ben-ico svg{width:18px;height:18px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.ben h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.ben p{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300;}
+
+/* FAQ */
+.faq{padding:72px 48px;border-bottom:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-item{background:var(--card);padding:24px 26px;transition:background .2s;}
+.faq-item:hover{background:var(--bg3);}
+.faq-q{font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;}
+.faq-q::before{content:'Q';font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-bg);border:1px solid var(--brand-border);padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;padding-left:30px;}
+
+/* CTA BANNER */
+.cta-band{padding:72px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border);}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(232,67,26,0.07) 0%,transparent 70%);pointer-events:none;}
+.cta-band h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6vw,72px);font-weight:900;color:var(--text);letter-spacing:-1px;line-height:.95;margin-bottom:14px;}
+.cta-band h2 em{color:var(--brand);font-style:normal;}
+.cta-band p{font-size:15px;color:var(--muted);margin-bottom:32px;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-note{margin-top:20px;font-size:12px;color:var(--muted2);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px 48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;background:var(--card);transition:background .3s;}
+.foot-links{display:flex;gap:20px;list-style:none;justify-content:center;}
+.foot-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--text);}
+.foot-r{text-align:right;font-size:11px;color:var(--muted);line-height:1.7;}
+.wa-float{position:fixed;bottom:22px;right:22px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;}
+.wa-float svg{width:24px;height:24px;fill:white;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .solar-hero{padding:48px 24px 40px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .intro{grid-template-columns:1fr;}
+  .intro-text{padding:48px 24px;border-right:none;border-bottom:1px solid var(--border);}
+  .intro-visual{padding:48px 24px;}
+  .systems,.process,.components,.packages,.calculator,.benefits,.faq,.cta-band{padding:48px 24px;}
+  .sys-grid,.process-steps{grid-template-columns:1fr;}
+  .step-connector{display:none!important;}
+  .comp-grid{grid-template-columns:1fr 1fr;}
+  .pkg-grid{grid-template-columns:1fr 1fr;}
+  .calc-wrap{grid-template-columns:1fr;}
+  .ben-grid{grid-template-columns:1fr 1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;text-align:center;padding:24px;}
+  .foot-r{text-align:center;}
+  .foot-links{justify-content:center;}
+}
+@media(max-width:600px){
+  nav{padding:0 16px;height:60px;}
+  .solar-hero{padding:36px 16px 32px;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hero-actions{flex-direction:column;}
+  .btn-p,.btn-o{justify-content:center;}
+  .sys-grid,.process-steps,.comp-grid,.pkg-grid,.ben-grid,.faq-grid{grid-template-columns:1fr;}
+  .sc-row,.compare-row,.res-row,.app-row{grid-template-columns:1fr 1fr;}
+  .calc-left,.calc-right{padding:24px 20px;}
+  .intro-text,.intro-visual{padding:36px 16px;}
+  .systems,.process,.components,.packages,.calculator,.benefits,.faq,.cta-band{padding:36px 16px;}
+  footer{padding:24px 16px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns .btn-p,.cta-btns .btn-o{width:100%;max-width:300px;justify-content:center;}
+  .theme-toggle{display:none;}
+  .nav-cta{display:none;}
+  .mobile-menu{
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100vw;
+    box-sizing:border-box;
+    z-index:9999;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <svg width="110" height="32" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="lk" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="ll" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+  </div class="nav-logo">
+  <ul class=
+  "nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="kolex_solar_page.html" class="active">Solar</a></li>
+    <li><a href="kolex_wiring_page.html">Wiring</a></li>
+    <li><a href="kolex_cctv_page.html">CCTV</a></li>
+    <li><a href="kolex_gallery_page.html">Gallery</a></li>
+    <li><a href="kolex_contact_quote_page.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="theme-toggle">
+      <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+      </div>
+      <div class="tog" id="btn-l" onclick="setTheme('light')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+      </div>
+    </div>
+    <a href="tel:+2347067448460" class="nav-cta">Get a Quote</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#">Home</a><a href="#" style="color:var(--brand)">Solar</a><a href="#">Wiring</a><a href="#">CCTV</a><a href="#">Gallery</a>
+  <a href="tel:+2347067448460" style="color:var(--brand);font-weight:600;">Get a Quote</a>
+  <div class="theme-toggle" style="margin-top:10px;padding:10px 0;border-top:1px solid var(--border);">
+    <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+    </div>
+    <div class="tog" id="btn-l" onclick="setTheme('light')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="solar-hero">
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    <span style="color:var(--brand);">Solar Installation</span>
+  </div>
+  <div class="hero-tag">Nigeria's Power Problem — Solved</div>
+  <h1>Clean Power.<br><em>Zero Excuses.</em></h1>
+  <p class="hero-sub">Stop depending on NEPA. Stop spending on generator fuel. Kolex Power Solutions installs premium solar systems for homes and businesses across Abuja — built to last 25 years.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/2347067448460" class="btn-p">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+      Get a Free Quote
+    </a>
+    <a href="#calculator" class="btn-o">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg>
+      Try Our Calculator
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">150+</div><div class="hs-l">Solar systems installed</div></div>
+    <div class="hs"><div class="hs-n">25yr</div><div class="hs-l">Panel lifespan guarantee</div></div>
+    <div class="hs"><div class="hs-n">2–4yr</div><div class="hs-l">Avg. return on investment</div></div>
+    <div class="hs"><div class="hs-n">98%</div><div class="hs-l">Customer satisfaction</div></div>
+  </div>
+</section>
+
+<!-- WHY SOLAR -->
+<section class="intro">
+  <div class="intro-text">
+    <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">The problem</span></div>
+    <h2>Nigeria's Power Situation Costs You Every Day.</h2>
+    <p>Whether it's NEPA (EEDC/AEDC) cutting power for 20 hours a day, or spending ₦50,000+ monthly on generator fuel — Nigerians have been forced to pay twice for electricity they barely receive.</p>
+    <p>Solar is no longer a luxury. It's the smartest financial decision a homeowner or business owner can make in 2025.</p>
+    <div class="pain-points">
+      <div class="pain">
+        <div class="pain-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div><strong>Epileptic power supply</strong><span>Most Abuja areas get fewer than 6 hours of grid power daily — if any at all.</span></div>
+      </div>
+      <div class="pain">
+        <div class="pain-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div><strong>Escalating fuel costs</strong><span>Generator petrol and diesel prices continue to rise, draining business profits and household budgets.</span></div>
+      </div>
+      <div class="pain">
+        <div class="pain-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div><strong>Zero productivity during outages</strong><span>Power cuts shut down businesses, spoil food, and interrupt children's studies daily.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="intro-visual">
+    <div class="saving-card accent">
+      <div class="sc-label">Annual fuel saving (typical household)</div>
+      <div class="sc-val">₦600K <span>/ year</span></div>
+      <div class="sc-sub">Average generator cost eliminated after solar install</div>
+      <div class="prog"><div class="prog-f" style="width:88%"></div></div>
+    </div>
+    <div class="sc-row">
+      <div class="saving-card">
+        <div class="sc-label">System lifespan</div>
+        <div class="sc-val">25 <span>years</span></div>
+        <div class="sc-sub">Panels warrantied for 25 yrs</div>
+      </div>
+      <div class="saving-card">
+        <div class="sc-label">ROI period</div>
+        <div class="sc-val">2–4 <span>years</span></div>
+        <div class="sc-sub">Then 20+ years free energy</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp bad">
+        <div class="cmp-label red">Without solar</div>
+        <div class="cmp-item bad">Generator fuel daily</div>
+        <div class="cmp-item bad">NEPA bills monthly</div>
+        <div class="cmp-item bad">Constant outages</div>
+        <div class="cmp-item bad">Equipment damage</div>
+        <div class="cmp-item bad">Noise & pollution</div>
+      </div>
+      <div class="cmp">
+        <div class="cmp-label green">With Kolex solar</div>
+        <div class="cmp-item good">Free energy from sun</div>
+        <div class="cmp-item good">Zero fuel cost</div>
+        <div class="cmp-item good">24/7 power</div>
+        <div class="cmp-item good">Silent operation</div>
+        <div class="cmp-item good">Clean & eco-friendly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM TYPES -->
+<section class="systems">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">System types</span></div>
+  <h2 class="sec-h">Find the Right System<br>for Your Needs.</h2>
+  <div class="sys-grid">
+    <div class="sys">
+      <div class="sys-num">01</div>
+      <div class="sys-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+      <h3>Off-Grid System</h3>
+      <p>Completely independent of NEPA. Runs entirely on solar panels and battery storage. Perfect for areas with no or extremely poor grid supply. Your own private power plant.</p>
+      <div class="sys-tags"><span class="sys-tag">Battery storage</span><span class="sys-tag">No NEPA needed</span><span class="sys-tag">Full independence</span></div>
+    </div>
+    <div class="sys">
+      <div class="sys-best"></div>
+      <span class="sys-badge">Most Popular</span>
+      <div class="sys-num">02</div>
+      <div class="sys-ico"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+      <h3>Hybrid System</h3>
+      <p>The best of both worlds. Runs on solar first, switches to battery backup when needed, and uses the grid as a last resort. Automatically manages power sources for maximum efficiency.</p>
+      <div class="sys-tags"><span class="sys-tag">Auto-switching</span><span class="sys-tag">Battery backup</span><span class="sys-tag">Grid-connected</span><span class="sys-tag">Smart inverter</span></div>
+    </div>
+    <div class="sys">
+      <div class="sys-num">03</div>
+      <div class="sys-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>Grid-Tied System</h3>
+      <p>Connected directly to the grid. Generates solar power during the day and uses the grid at night. Best for areas with relatively stable grid supply. Lower upfront cost — no batteries needed.</p>
+      <div class="sys-tags"><span class="sys-tag">Lower cost</span><span class="sys-tag">No batteries</span><span class="sys-tag">Grid dependent</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">How it works</span></div>
+  <h2 class="sec-h">Our Installation Process.<br>Step by Step.</h2>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <h4>Free site assessment</h4>
+      <p>Our engineer visits your location to assess your power needs, roof type, shading, and electrical setup. Zero cost, zero commitment.</p>
+      <div class="step-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <h4>Custom design & quote</h4>
+      <p>We design a solar system sized exactly for your energy needs and provide a detailed quote with equipment specs and full pricing.</p>
+      <div class="step-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <h4>Equipment procurement</h4>
+      <p>We source only certified, quality-brand panels, inverters and batteries. No substandard components — ever. We show you everything before installation begins.</p>
+      <div class="step-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <h4>Professional installation</h4>
+      <p>Our certified team installs your system cleanly and safely, usually within 1–2 days for residential systems. We manage all wiring and mounting.</p>
+      <div class="step-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+    <div class="step">
+      <div class="step-n">5</div>
+      <h4>Testing & commissioning</h4>
+      <p>Every system is fully tested before handover. We verify output, check all connections, and confirm battery charge cycles are working correctly.</p>
+      <div class="step-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+    <div class="step">
+      <div class="step-n">6</div>
+      <h4>Handover & after-support</h4>
+      <p>We walk you through operating your system, provide documentation, and remain available for any questions or maintenance needs after installation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="components">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">What's included</span></div>
+  <h2 class="sec-h">Every Component.<br>Quality Guaranteed.</h2>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h4>Solar Panels</h4>
+      <p>Monocrystalline and polycrystalline panels with 25-year performance warranty. High efficiency even under partial shade conditions.</p>
+      <span class="brand-tag">Jinko · Canadian Solar · Longi</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h4>Inverter</h4>
+      <p>Pure sine wave inverters that convert solar DC power to AC. Supports all home appliances including sensitive electronics and air conditioners.</p>
+      <span class="brand-tag">Luminous · Victron · Growatt</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg></div>
+      <h4>Battery Bank</h4>
+      <p>Lithium (LiFePO4) or tubular gel batteries for energy storage. Lithium batteries last 10+ years with deeper discharge cycles and zero maintenance.</p>
+      <span class="brand-tag">Felicity · Pylon · BAE</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+      <h4>MPPT Charge Controller</h4>
+      <p>Maximum Power Point Tracking controller optimises energy harvest from panels and protects batteries from overcharge and deep discharge.</p>
+      <span class="brand-tag">Victron · EPsolar · Srne</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h4>Protection & Wiring</h4>
+      <p>Certified DC and AC cables, fuses, surge protection devices, isolators and earthing systems. All wiring meets Nigerian safety standards.</p>
+      <span class="brand-tag">Standard gauge cables</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+      <h4>Mounting Structures</h4>
+      <p>Galvanised steel or aluminium roof mounting frames designed for Nigerian weather conditions — built to withstand harmattan winds and heavy rain.</p>
+      <span class="brand-tag">Rooftop · Ground mount</span>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">System packages</span></div>
+  <h2 class="sec-h">A System for Every<br>Home & Budget.</h2>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-size">1kVA System</div>
+      <div class="pkg-powers">Powers</div>
+      <div class="pkg-items">
+        <div class="pkg-item">LED lights (6–8)</div>
+        <div class="pkg-item">Ceiling fans (2)</div>
+        <div class="pkg-item">Phone charging</div>
+        <div class="pkg-item">Small TV & decoder</div>
+        <div class="pkg-item">Internet router</div>
+      </div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Standard</div>
+      <div class="pkg-size">3.5kVA System</div>
+      <div class="pkg-powers">Powers</div>
+      <div class="pkg-items">
+        <div class="pkg-item">Everything in Starter</div>
+        <div class="pkg-item">Refrigerator (medium)</div>
+        <div class="pkg-item">Laptops (2–3)</div>
+        <div class="pkg-item">Large TV</div>
+        <div class="pkg-item">Security cameras</div>
+      </div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-name">Premium</div>
+      <div class="pkg-size">5kVA System</div>
+      <div class="pkg-powers">Powers</div>
+      <div class="pkg-items">
+        <div class="pkg-item">Everything in Standard</div>
+        <div class="pkg-item">1 HP Air conditioner</div>
+        <div class="pkg-item">Washing machine</div>
+        <div class="pkg-item">Water pump (small)</div>
+        <div class="pkg-item">Full home load</div>
+      </div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-name">Commercial</div>
+      <div class="pkg-size">10kVA+</div>
+      <div class="pkg-powers">Powers</div>
+      <div class="pkg-items">
+        <div class="pkg-item">Offices & shops</div>
+        <div class="pkg-item">Multiple ACs</div>
+        <div class="pkg-item">Industrial equipment</div>
+        <div class="pkg-item">Borehole pump</div>
+        <div class="pkg-item">Custom design</div>
+      </div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:16px;text-align:center;">Prices vary based on brand selection, battery type, and site requirements. Contact us for an accurate quote tailored to your specific needs.</p>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calculator" id="calculator">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Solar calculator</span></div>
+  <h2 class="sec-h">Estimate Your<br>System Size.</h2>
+  <div class="calc-wrap">
+    <div class="calc-left">
+      <p class="calc-intro">Select the appliances you want to power and we'll estimate the right solar system size for your needs.</p>
+      <div class="app-row" id="app-list">
+        <div class="app-item"><span class="app-name">Ceiling fans</span><div class="app-qty"><button class="app-btn" onclick="change('fans',-1)">−</button><span class="app-count" id="fans">2</span><button class="app-btn" onclick="change('fans',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">LED lights</span><div class="app-qty"><button class="app-btn" onclick="change('lights',-1)">−</button><span class="app-count" id="lights">6</span><button class="app-btn" onclick="change('lights',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">TV + decoder</span><div class="app-qty"><button class="app-btn" onclick="change('tv',-1)">−</button><span class="app-count" id="tv">1</span><button class="app-btn" onclick="change('tv',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">Refrigerator</span><div class="app-qty"><button class="app-btn" onclick="change('fridge',-1)">−</button><span class="app-count" id="fridge">1</span><button class="app-btn" onclick="change('fridge',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">Laptop/PC</span><div class="app-qty"><button class="app-btn" onclick="change('laptop',-1)">−</button><span class="app-count" id="laptop">2</span><button class="app-btn" onclick="change('laptop',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">Air conditioner</span><div class="app-qty"><button class="app-btn" onclick="change('ac',-1)">−</button><span class="app-count" id="ac">0</span><button class="app-btn" onclick="change('ac',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">Water pump</span><div class="app-qty"><button class="app-btn" onclick="change('pump',-1)">−</button><span class="app-count" id="pump">0</span><button class="app-btn" onclick="change('pump',1)">+</button></div></div>
+        <div class="app-item"><span class="app-name">CCTV cameras</span><div class="app-qty"><button class="app-btn" onclick="change('cctv',-1)">−</button><span class="app-count" id="cctv">0</span><button class="app-btn" onclick="change('cctv',1)">+</button></div></div>
+      </div>
+    </div>
+    <div class="calc-right">
+      <p class="calc-intro">Your estimated system requirements based on selected appliances.</p>
+      <div class="calc-result">
+        <div class="result-card accent">
+          <div class="res-label">Recommended system size</div>
+          <div class="res-val" id="sys-size">3.5 <span class="res-unit">kVA</span></div>
+          <div class="res-sub" id="sys-desc">Standard package — good for a typical 2–3 bedroom home</div>
+        </div>
+        <div class="res-row">
+          <div class="result-card">
+            <div class="res-label">Total load</div>
+            <div class="res-val" id="total-load">980 <span class="res-unit">W</span></div>
+            <div class="res-sub">Estimated watt consumption</div>
+          </div>
+          <div class="result-card">
+            <div class="res-label">Battery capacity</div>
+            <div class="res-val" id="battery">200 <span class="res-unit">Ah</span></div>
+            <div class="res-sub">For 8hrs autonomy</div>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="res-label">Recommended panels</div>
+          <div class="res-val" id="panels">4 <span class="res-unit">× 400W</span></div>
+          <div class="res-sub" id="panel-desc">Monocrystalline panels recommended</div>
+        </div>
+        <button class="calc-cta" onclick="openWA()">Get an accurate quote for this system ↗</button>
+        <p class="calc-note">This is an estimate only. Our engineer will assess your actual requirements during a free site visit and provide an exact specification and quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Why go solar</span></div>
+  <h2 class="sec-h">Six Reasons Solar<br>Makes Sense Now.</h2>
+  <div class="ben-grid">
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><h4>Eliminate electricity bills</h4><p>Generate your own power and drastically cut or completely eliminate your NEPA/EEDC bills every month.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>24/7 power availability</h4><p>With battery backup, your home stays powered through the night and during grid outages — silently and automatically.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><h4>Increases property value</h4><p>Properties with solar systems command higher selling and rental prices. Solar is now a sought-after feature in Nigerian real estate.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72"/><path d="M22 16.92v3"/></svg></div><div><h4>Zero fuel, zero noise</h4><p>No more generator fumes, noise complaints, or late-night refuelling. Solar runs completely silently with zero emissions.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><h4>Strong return on investment</h4><p>Most Kolex solar clients recover their full investment within 2–4 years. After that, the energy is essentially free for 20+ more years.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Eco-friendly & sustainable</h4><p>Solar dramatically reduces your carbon footprint. Clean energy for your family while protecting the environment for the next generation.</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Common questions</span></div>
+  <h2 class="sec-h">Solar FAQs —<br>Answered Simply.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">How long does installation take?</div>
+      <div class="faq-a">Most residential systems (1–5kVA) are installed within 1–2 days. Larger commercial systems may take 3–5 days depending on complexity and roof size.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens on cloudy or rainy days?</div>
+      <div class="faq-a">Solar panels still generate power in cloudy conditions — just at reduced output (20–50%). Your battery bank stores enough energy to cover periods of low generation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long do the batteries last?</div>
+      <div class="faq-a">Lithium batteries last 10–15 years with minimal maintenance. Tubular gel batteries last 5–7 years. We recommend lithium for long-term value.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer maintenance after installation?</div>
+      <div class="faq-a">Yes. We offer periodic maintenance checks, panel cleaning, battery health tests, and repairs. We also remain available via WhatsApp for any technical questions.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I expand my system later?</div>
+      <div class="faq-a">Absolutely. Our systems are designed to be expandable. You can add more panels, batteries, or upgrade your inverter as your power needs grow.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer payment plans?</div>
+      <div class="faq-a">Yes, we offer flexible payment arrangements. Contact us to discuss what works for your budget — we want to make solar accessible to every home and business.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="sec-tag" style="justify-content:center;margin-bottom:14px;"><div class="sec-line"></div><span class="sec-label">Take the first step</span><div class="sec-line"></div></div>
+  <h2>Stop Paying for<br><em>Power You Don't Have.</em></h2>
+  <p>Get a free, no-obligation site assessment from our team. We'll design the perfect system for your home or business.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/2347067448460" class="btn-p">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+      WhatsApp Us Now
+    </a>
+    <a href="tel:+2347067448460" class="btn-o">Call +234 706 744 8460</a>
+    <a href="tel:+2347057326269" class="btn-o">Call +234 705 732 6269</a>
+  </div>
+  <div class="cta-note">kolexpowersolutions@gmail.com · Shop H2G211, Wuye Market, Abuja, FCT</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="100" height="30" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fk" fill="#FFFFFF">K</text>
+    <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+    <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+    <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fl" fill="#FFFFFF">lex</text>
+    <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+  </svg>
+  <ul class="foot-links">
+    <li><a href="#">Home</a></li><li><a href="#">Solar</a></li><li><a href="#">Wiring</a></li><li><a href="#">CCTV</a></li><li><a href="#">Gallery</a></li><li><a href="#">Contact</a></li>
+  </ul>
+  <div class="foot-r">RC: 9344845 · CAC Registered<br>© 2025 Kolex Power Solutions Ltd · Abuja, FCT</div>
+</footer>
+
+<a href="https://wa.me/2347067448460" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+</a>
+
+<script>
+const watts={fans:75,lights:10,tv:150,fridge:150,laptop:65,ac:1200,pump:750,cctv:15};
+const counts={fans:2,lights:6,tv:1,fridge:1,laptop:2,ac:0,pump:0,cctv:0};
+
+function change(id,d){
+  counts[id]=Math.max(0,counts[id]+d);
+  document.getElementById(id).textContent=counts[id];
+  calculate();
+}
+
+function calculate(){
+  let total=0;
+  for(const k in counts) total+=counts[k]*watts[k];
+  const kva=Math.max(1,(total/1000*1.25)).toFixed(1);
+  const ah=Math.round(total*8/24/12*100)/100;
+  const panels=Math.max(2,Math.ceil(total/400));
+  document.getElementById('total-load').innerHTML=total+' <span class="res-unit">W</span>';
+  document.getElementById('sys-size').innerHTML=kva+' <span class="res-unit">kVA</span>';
+  document.getElementById('battery').innerHTML=Math.round(ah*100)+' <span class="res-unit">Ah</span>';
+  document.getElementById('panels').innerHTML=panels+' <span class="res-unit">× 400W</span>';
+  let desc='';
+  if(kva<=1.5)desc='Starter package — perfect for basic lighting and small appliances';
+  else if(kva<=3)desc='Standard package — good for a typical 1–2 bedroom home';
+  else if(kva<=5)desc='Premium package — full home coverage including fridge and fans';
+  else desc='Commercial system — custom design required';
+  document.getElementById('sys-desc').textContent=desc;
+}
+
+function openWA(){
+  let msg='Hello Kolex Power Solutions, I used your solar calculator and got these results:%0A';
+  msg+='Total load: '+document.getElementById('total-load').innerText+'%0A';
+  msg+='System size: '+document.getElementById('sys-size').innerText+'%0A';
+  msg+='Please provide an accurate quote.';
+  window.open('https://wa.me/2347067448460?text='+msg,'_blank');
+}
+
+function setTheme(t){
+  document.body.className=t;
+  document.getElementById('btn-d').className='tog'+(t==='dark'?' on':'');
+  document.getElementById('btn-l').className='tog'+(t==='light'?' on':'');
+  const c=t==='dark'?'#FFFFFF':'#181818';
+  ['lk','ll','fk','fl'].forEach(id=>{const e=document.getElementById(id);if(e)e.setAttribute('fill',c);});
+}
+function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');}
+document.body.className='dark';
+calculate();
+</script>
+</body>
+</html>

@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Quote - Kolex Power Solutions</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--brand:#E8431A;--brand-dark:#C03510;--brand-bg:rgba(232,67,26,0.08);--brand-border:rgba(232,67,26,0.22);}
+body{font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .3s,color .3s;}
+body.dark{--bg:#0E0E0E;--bg2:#161616;--bg3:#1F1F1F;--border:#282828;--text:#EFEFEF;--muted:#7A7A7A;--muted2:#333;--card:#161616;--nav-bg:rgba(14,14,14,0.96);--input-bg:#1F1F1F;--placeholder:#444;}
+body.light{--bg:#F5F3EF;--bg2:#FFFFFF;--bg3:#EDEBE6;--border:#E2DED8;--text:#181818;--muted:#636363;--muted2:#C8C4BC;--card:#FFFFFF;--nav-bg:rgba(245,243,239,0.96);--input-bg:#F5F3EF;--placeholder:#BBBBBB;}
+body{background:var(--bg);color:var(--text);}
+
+/* TOGGLE */
+.theme-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.tog{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.tog svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.tog.on{background:var(--brand);color:#fff;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;gap:16px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--brand);}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.nav-cta{background:var(--brand);color:#fff;padding:8px 20px;border-radius:3px;font-size:13px;font-weight:500;text-decoration:none;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:15px;padding:10px 0;border-bottom:1px solid var(--border);}
+.nav-logo {flex-shrink:0;}
+.nav-logo svg {width:100%;height:auto;max-width:110px;}
+
+/* HERO */
+.hero{padding:72px 48px 56px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,67,26,0.06) 0%,transparent 65%);pointer-events:none;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:24px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--brand);}
+.breadcrumb svg{width:12px;height:12px;stroke:var(--muted2);fill:none;stroke-width:2;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--brand);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,6.5vw,86px);font-weight:900;line-height:.92;letter-spacing:-1px;color:var(--text);margin-bottom:20px;}
+.hero h1 em{color:var(--brand);font-style:normal;display:block;}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:32px;max-width:440px;}
+.quick-contacts{display:flex;flex-direction:column;gap:10px;}
+.qc{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:border-color .2s;}
+.qc:hover{border-color:var(--brand);}
+.qc-ico{width:36px;height:36px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.qc-ico svg{width:17px;height:17px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.qc-ico.wa{background:#25D36618;border-color:#25D36640;}
+.qc-ico.wa svg{stroke:#25D366;}
+.qc-label{font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;}
+.qc-value{font-size:14px;font-weight:500;color:var(--text);}
+.hero-promise{display:flex;flex-direction:column;gap:10px;}
+.promise-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:22px 24px;transition:background .3s;}
+.promise-card.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.p-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.p-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.p-ico{width:32px;height:32px;border-radius:5px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
+.p-ico svg{width:15px;height:15px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.p-val{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--brand);line-height:1;}
+.p-sub{font-size:12px;color:var(--muted);margin-top:4px;}
+.p-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.p-steps{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.p-step{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);}
+.p-step-n{width:20px;height:20px;border-radius:50%;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--brand);flex-shrink:0;}
+
+/* SECTION HELPERS */
+.sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.sec-line{width:18px;height:2px;background:var(--brand);}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4.5vw,54px);font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.5px;margin-bottom:40px;}
+
+/* QUOTE FORM */
+.quote-section{padding:72px 48px;border-bottom:1px solid var(--border);}
+.form-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border);}
+.form-left{background:var(--card);padding:40px 36px;}
+.form-right{background:var(--bg2);padding:40px 36px;display:flex;flex-direction:column;gap:20px;transition:background .3s;}
+.form-intro{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:28px;}
+
+/* FORM ELEMENTS */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.field label{font-size:12px;font-weight:500;color:var(--text);letter-spacing:.3px;}
+.field label span{color:var(--brand);}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--input-bg);border:1px solid var(--border);border-radius:4px;padding:11px 14px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus,select:focus,textarea:focus{border-color:var(--brand);}
+input::placeholder,textarea::placeholder{color:var(--placeholder);}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px;}
+select option{background:var(--card);color:var(--text);}
+textarea{resize:vertical;min-height:110px;}
+.checkbox-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.cb-opt{display:flex;align-items:center;gap:6px;padding:7px 12px;background:var(--input-bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:13px;color:var(--muted);transition:all .2s;user-select:none;}
+.cb-opt.sel{background:var(--brand-bg);border-color:var(--brand-border);color:var(--brand);}
+.cb-dot{width:8px;height:8px;border-radius:2px;background:var(--border);flex-shrink:0;transition:background .2s;}
+.cb-opt.sel .cb-dot{background:var(--brand);}
+.submit-btn{width:100%;background:var(--brand);color:#fff;padding:14px;border:none;border-radius:4px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.submit-btn:hover{background:var(--brand-dark);}
+.submit-btn svg{width:16px;height:16px;}
+.form-note{font-size:11px;color:var(--muted);margin-top:10px;text-align:center;line-height:1.5;}
+
+/* FORM RIGHT SIDEBAR */
+.sidebar-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.3px;}
+.sidebar-sub{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:16px;}
+.wa-big{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#25D36610;border:1px solid #25D36635;border-radius:6px;text-decoration:none;transition:all .2s;}
+.wa-big:hover{background:#25D36620;}
+.wa-icon{width:42px;height:42px;background:#25D366;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wa-icon svg{width:22px;height:22px;fill:white;}
+.wa-text strong{font-size:14px;font-weight:600;color:var(--text);display:block;}
+.wa-text span{font-size:12px;color:var(--muted);}
+.divider{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.call-cards{display:flex;flex-direction:column;gap:8px;}
+.call-card{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:border-color .2s;}
+.call-card:hover{border-color:var(--brand);}
+.call-ico{width:34px;height:34px;border-radius:5px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.call-ico svg{width:16px;height:16px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.call-text strong{font-size:13px;font-weight:500;color:var(--text);display:block;}
+.call-text span{font-size:11px;color:var(--muted);}
+.email-card{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:border-color .2s;}
+.email-card:hover{border-color:var(--brand);}
+.email-ico{width:34px;height:34px;border-radius:5px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.email-ico svg{width:16px;height:16px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.email-text strong{font-size:13px;font-weight:500;color:var(--text);display:block;}
+.email-text span{font-size:11px;color:var(--muted);}
+.hours-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.hours-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.hours-row:last-child{border-bottom:none;}
+.hours-day{color:var(--muted);}
+.hours-time{color:var(--text);font-weight:500;}
+.hours-time.closed{color:var(--muted2);}
+.open-badge{display:inline-flex;align-items:center;gap:5px;background:#4ade8015;border:1px solid #4ade8030;color:#4ade80;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:500;margin-bottom:14px;}
+.open-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:#4ade80;animation:blink 2s infinite;}
+
+/* SUCCESS STATE */
+.success-state{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 32px;gap:16px;}
+.success-state.show{display:flex;}
+.success-ico{width:64px;height:64px;border-radius:50%;background:#4ade8015;border:1px solid #4ade8030;display:flex;align-items:center;justify-content:center;}
+.success-ico svg{width:28px;height:28px;stroke:#4ade80;fill:none;stroke-width:2;}
+.success-state h3{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--text);}
+.success-state p{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* CONTACT INFO STRIP */
+.contact-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card);transition:background .3s;}
+.ci{padding:28px 36px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:10px;}
+.ci:last-child{border-right:none;}
+.ci-ico{width:36px;height:36px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;}
+.ci-ico svg{width:17px;height:17px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.ci h4{font-size:13px;font-weight:600;color:var(--text);}
+.ci p{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300;}
+.ci a{color:var(--brand);text-decoration:none;font-size:12px;}
+.ci a:hover{text-decoration:underline;}
+
+/* MAP SECTION */
+.map-section{padding:72px 48px;border-bottom:1px solid var(--border);}
+.map-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border);}
+.map-info{background:var(--card);padding:36px 32px;display:flex;flex-direction:column;gap:20px;transition:background .3s;}
+.map-placeholder{background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;min-height:360px;position:relative;overflow:hidden;}
+.map-grid{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(var(--text) 1px,transparent 1px),linear-gradient(90deg,var(--text) 1px,transparent 1px);background-size:40px 40px;}
+.map-pin{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.map-pin-ico{width:48px;height:48px;background:var(--brand);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;}
+.map-pin-ico svg{transform:rotate(45deg);width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;}
+.map-pin-label{font-size:13px;font-weight:500;color:var(--text);text-align:center;}
+.map-pin-sub{font-size:11px;color:var(--muted);text-align:center;}
+.map-cta{display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:#fff;padding:10px 20px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s;position:relative;z-index:1;}
+.map-cta:hover{background:var(--brand-dark);}
+.info-block{display:flex;flex-direction:column;gap:6px;}
+.ib-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.ib-val{font-size:14px;font-weight:500;color:var(--text);}
+.ib-sub{font-size:12px;color:var(--muted);font-weight:300;}
+.ib-link{color:var(--brand);font-size:13px;text-decoration:none;font-weight:500;}
+.ib-link:hover{text-decoration:underline;}
+.divider-h{height:1px;background:var(--border);}
+.service-areas{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.area-tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--muted);}
+
+/* SOCIAL */
+.social-section{padding:56px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.social-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.social-left h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--text);letter-spacing:-.5px;margin-bottom:6px;}
+.social-left p{font-size:14px;color:var(--muted);font-weight:300;}
+.social-links{display:flex;gap:10px;}
+.soc{width:48px;height:48px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--muted);transition:all .2s;}
+.soc:hover{border-color:var(--brand);color:var(--brand);}
+.soc svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;}
+.soc.soc-fb:hover{border-color:#1877F2;color:#1877F2;}
+.soc.soc-ig:hover{border-color:#E4405F;color:#E4405F;}
+.soc.soc-li:hover{border-color:#0A66C2;color:#0A66C2;}
+.soc.soc-yt:hover{border-color:#FF0000;color:#FF0000;}
+
+/* FAQ */
+.faq{padding:72px 48px;border-bottom:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-item{background:var(--card);padding:22px 24px;transition:background .2s;cursor:default;}
+.faq-item:hover{background:var(--bg3);}
+.faq-q{font-size:14px;font-weight:500;color:var(--text);margin-bottom:7px;display:flex;align-items:flex-start;gap:9px;}
+.faq-q::before{content:'Q';font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-bg);border:1px solid var(--brand-border);padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;padding-left:28px;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:36px 48px;transition:background .3s;}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-top:14px;max-width:240px;}
+.foot-col h4{font-size:12px;font-weight:600;color:var(--text);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.foot-col ul li a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-col ul li a:hover{color:var(--brand);}
+.foot-col ul li{font-size:13px;color:var(--muted);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.foot-copy{font-size:12px;color:var(--muted2);}
+.foot-rc{font-size:12px;color:var(--muted2);}
+.wa-float{position:fixed;bottom:22px;right:22px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;}
+.wa-float svg{width:24px;height:24px;fill:white;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .foot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:48px 24px 40px;}
+  .hero-inner{grid-template-columns:1fr;gap:36px;}
+  .hero-sub{max-width:100%;}
+  .quote-section,.map-section,.social-section,.faq,.contact-strip-wrap{padding-left:24px;padding-right:24px;}
+  .quote-section,.map-section,.faq{padding-top:48px;padding-bottom:48px;}
+  .form-wrap{grid-template-columns:1fr;}
+  .form-right{padding:28px 28px;}
+  .form-left{padding:28px 28px;}
+  .contact-strip{grid-template-columns:1fr 1fr;}
+  .ci:nth-child(2){border-right:none;}
+  .ci:nth-child(3){border-top:1px solid var(--border);}
+  .ci:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+  .map-inner{grid-template-columns:1fr;}
+  .map-placeholder{min-height:260px;}
+  .faq-grid{grid-template-columns:1fr;}
+  .social-section{padding:36px 24px;}
+  .social-inner{flex-direction:column;align-items:flex-start;}
+  footer{padding:32px 24px;}
+  .foot-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .foot-bottom{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  nav{padding:0 16px;height:60px;}
+  .hero{padding:36px 16px 32px;}
+  .p-row{grid-template-columns:1fr 1fr;}
+  .field-row{grid-template-columns:1fr;}
+  .checkbox-row{gap:7px;}
+  .contact-strip{grid-template-columns:1fr;}
+  .ci{border-right:none!important;border-top:1px solid var(--border);}
+  .ci:first-child{border-top:none;}
+  .quote-section,.map-section,.faq{padding:36px 16px;}
+  .faq-grid{grid-template-columns:1fr;}
+  footer{padding:24px 16px;}
+  .foot-top{grid-template-columns:1fr;gap:24px;}
+  .foot-bottom{flex-direction:column;align-items:flex-start;gap:6px;}
+  .social-links{flex-wrap:wrap;}
+}
+@media(max-width:480px){
+  nav{padding:0 8px;}
+  .hero{padding:36px 8px 32px;}
+  .hero-inner{gap:24px;}
+  h1{font-size:clamp(32px,8vw,60px);}
+  .sec-h{font-size:clamp(24px,5vw,40px);}
+  .form-wrap{grid-template-columns:1fr;}
+  .form-left,.form-right{padding:24px 20px;}
+  .contact-strip{grid-template-columns:1fr;}
+  .ci{border-right:none!important;}
+  .ci:nth-child(odd){border-top:1px solid var(--border);}
+  .ci:first-child{border-top:none;}
+  .map-inner{grid-template-columns:1fr;}
+  .map-info,.map-placeholder{padding:24px;}
+  .faq-grid{grid-template-columns:1fr;}
+  .social-section{padding:24px 8px;}
+  .social-inner{flex-direction:column;}
+  footer{padding:20px 8px;}
+  .foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg width="110" height="32" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="lk" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="ll" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="kolex_solar_page.html">Solar</a></li>
+    <li><a href="kolex_wiring_page.html">Wiring</a></li>
+    <li><a href="cctv.html">CCTV</a></li>
+    <li><a href="kolex_gallery_page.html">Gallery</a></li>
+    <li><a href="kolex_contact_quote_page.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="theme-toggle">
+      <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+      </div>
+      <div class="tog" id="btn-l" onclick="setTheme('light')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+      </div>
+    </div>
+    <a href="https://wa.me/2347067448460" class="nav-cta">WhatsApp Us</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#">Home</a><a href="#">Solar</a><a href="#">Wiring</a><a href="#">CCTV</a><a href="#">Gallery</a>
+  <a href="#" style="color:var(--brand)">Contact</a>
+  <a href="https://wa.me/2347067448460" style="color:var(--brand);font-weight:600;">WhatsApp Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    <span style="color:var(--brand)">Contact & Quote</span>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Free site assessment included</div>
+      <h1>Let's Talk<br><em>Power.</em></h1>
+      <p class="hero-sub">Get a free, no-obligation quote for solar installation, electrical wiring or CCTV. Our team typically responds within 2 hours on WhatsApp.</p>
+      <div class="quick-contacts">
+        <a href="https://wa.me/2347067448460" class="qc">
+          <div class="qc-ico wa">
+            <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+          </div>
+          <div>
+            <div class="qc-label">WhatsApp (fastest)</div>
+            <div class="qc-value">+234 706 744 8460</div>
+          </div>
+        </a>
+        <a href="tel:+2347067448460" class="qc">
+          <div class="qc-ico">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="qc-label">Call us directly</div>
+            <div class="qc-value">+234 706 744 8460</div>
+          </div>
+        </a>
+        <a href="tel:+2347057326269" class="qc">
+          <div class="qc-ico">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="qc-label">Alternative line</div>
+            <div class="qc-value">+234 705 732 6269</div>
+          </div>
+        </a>
+        <a href="mailto:kolexpowersolutions@gmail.com" class="qc">
+          <div class="qc-ico">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="qc-label">Email us</div>
+            <div class="qc-value">kolexpowersolutions@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="hero-promise">
+      <div class="promise-card accent">
+        <div class="p-top">
+          <span class="p-label">Response time</span>
+          <div class="p-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        </div>
+        <div class="p-val">Within 2hrs</div>
+        <div class="p-sub">Average WhatsApp response during business hours</div>
+      </div>
+      <div class="p-row">
+        <div class="promise-card">
+          <div class="p-top">
+            <span class="p-label">Site visit</span>
+            <div class="p-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          </div>
+          <div class="p-val">Free</div>
+          <div class="p-sub">No charge for assessment</div>
+        </div>
+        <div class="promise-card">
+          <div class="p-top">
+            <span class="p-label">Quote</span>
+            <div class="p-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          </div>
+          <div class="p-val">24hrs</div>
+          <div class="p-sub">Written quote turnaround</div>
+        </div>
+      </div>
+      <div class="promise-card">
+        <div class="p-label" style="margin-bottom:12px">What happens after you contact us</div>
+        <div class="p-steps">
+          <div class="p-step"><div class="p-step-n">1</div>We reply within 2 hours on WhatsApp</div>
+          <div class="p-step"><div class="p-step-n">2</div>We schedule a free site visit at your convenience</div>
+          <div class="p-step"><div class="p-step-n">3</div>You receive a clear written quote within 24 hours</div>
+          <div class="p-step"><div class="p-step-n">4</div>We agree a start date and begin work</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="ci">
+    <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+    <h4>Phone</h4>
+    <p><a href="tel:+2347067448460">+234 706 744 8460</a><br><a href="tel:+2347057326269">+234 705 732 6269</a></p>
+  </div>
+  <div class="ci">
+    <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <h4>Email</h4>
+    <p><a href="mailto:kolexpowersolutions@gmail.com">kolexpowersolutions@gmail.com</a></p>
+  </div>
+  <div class="ci">
+    <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+    <h4>Office address</h4>
+    <p>Shop H2G211, Wuye Market<br>Abuja, FCT, Nigeria</p>
+  </div>
+  <div class="ci">
+    <div class="ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+    <h4>Business hours</h4>
+    <p>Monday – Saturday<br>8:00 AM – 6:00 PM</p>
+  </div>
+</div>
+
+<!-- QUOTE FORM -->
+<section class="quote-section">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Get a quote</span></div>
+  <h2 class="sec-h">Tell Us About<br>Your Project.</h2>
+  <div class="form-wrap">
+    <div class="form-left">
+      <!-- FORM STATE -->
+      <div id="form-body">
+        <p class="form-intro">Fill in the details below and we'll get back to you within 24 hours with a tailored quote. All fields marked <span style="color:var(--brand)">*</span> are required.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Full name <span>*</span></label>
+            <input type="text" id="f-name" placeholder="e.g. John Adebayo"/>
+          </div>
+          <div class="field">
+            <label>Phone / WhatsApp <span>*</span></label>
+            <input type="tel" id="f-phone" placeholder="e.g. 0806 000 0000"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" id="f-email" placeholder="your@email.com"/>
+        </div>
+
+        <div class="field">
+          <label>Your location / area <span>*</span></label>
+          <input type="text" id="f-location" placeholder="e.g. Gwarinpa, Abuja"/>
+        </div>
+
+        <div class="field">
+          <label>Service needed <span>*</span></label>
+          <div class="checkbox-row" id="services-cb">
+            <div class="cb-opt sel" onclick="toggleCb(this)"><div class="cb-dot"></div>Solar Installation</div>
+            <div class="cb-opt" onclick="toggleCb(this)"><div class="cb-dot"></div>Electrical Wiring</div>
+            <div class="cb-opt" onclick="toggleCb(this)"><div class="cb-dot"></div>CCTV Installation</div>
+            <div class="cb-opt" onclick="toggleCb(this)"><div class="cb-dot"></div>Rewiring</div>
+            <div class="cb-opt" onclick="toggleCb(this)"><div class="cb-dot"></div>Fault Repair</div>
+            <div class="cb-opt" onclick="toggleCb(this)"><div class="cb-dot"></div>Inspection</div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Property type</label>
+            <select id="f-type">
+              <option value="">Select type...</option>
+              <option>Residential (house)</option>
+              <option>Apartment / flat</option>
+              <option>Office / commercial</option>
+              <option>Shop / retail</option>
+              <option>Warehouse / factory</option>
+              <option>Church / hall</option>
+              <option>Estate development</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Project timeline</label>
+            <select id="f-timeline">
+              <option value="">When do you need it?</option>
+              <option>As soon as possible</option>
+              <option>Within 2 weeks</option>
+              <option>Within a month</option>
+              <option>1–3 months</option>
+              <option>Just planning ahead</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Budget range (optional)</label>
+          <select id="f-budget">
+            <option value="">Prefer not to say</option>
+            <option>Under ₦200,000</option>
+            <option>₦200,000 – ₦500,000</option>
+            <option>₦500,000 – ₦1,000,000</option>
+            <option>₦1,000,000 – ₦3,000,000</option>
+            <option>Above ₦3,000,000</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Tell us more about your project</label>
+          <textarea id="f-message" placeholder="Describe what you need — number of rooms, current power situation, type of solar system, etc. The more detail the better..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>How did you hear about us?</label>
+          <select id="f-source">
+            <option value="">Please select...</option>
+            <option>Google search</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>WhatsApp referral</option>
+            <option>Friend / family recommendation</option>
+            <option>Walked past our shop</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          Send My Quote Request
+        </button>
+        <p class="form-note">By submitting this form, you agree to be contacted by Kolex Power Solutions regarding your enquiry. We never share your details with third parties.</p>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="form-success">
+        <div class="success-ico"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Request Sent!</h3>
+        <p>Thank you! We've received your quote request and will respond within 24 hours. For faster response, message us directly on WhatsApp.</p>
+        <a href="https://wa.me/2347067448460" class="submit-btn" style="text-decoration:none;margin-top:8px;">
+          <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+          Chat on WhatsApp Now
+        </a>
+      </div>
+    </div>
+
+    <div class="form-right">
+      <div>
+        <div class="open-badge">Open now</div>
+        <div class="sidebar-title">Prefer to reach us directly?</div>
+        <div class="sidebar-sub">Skip the form — chat with us instantly on WhatsApp.</div>
+      </div>
+
+      <a href="https://wa.me/2347067448460" class="wa-big">
+        <div class="wa-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+        </div>
+        <div class="wa-text">
+          <strong>Chat on WhatsApp</strong>
+          <span>+234 706 744 8460 · Typically replies in under 2 hours</span>
+        </div>
+      </a>
+
+      <div class="divider">or call us</div>
+
+      <div class="call-cards">
+        <a href="tel:+2347067448460" class="call-card">
+          <div class="call-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="call-text"><strong>+234 706 744 8460</strong><span>Primary line</span></div>
+        </a>
+        <a href="tel:+2347057326269" class="call-card">
+          <div class="call-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="call-text"><strong>+234 705 732 6269</strong><span>Alternative line</span></div>
+        </a>
+        <a href="mailto:kolexpowersolutions@gmail.com" class="email-card">
+          <div class="email-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="email-text"><strong>kolexpowersolutions@gmail.com</strong><span>Email · Replies within 24hrs</span></div>
+        </a>
+      </div>
+
+      <div class="hours-card">
+        <div class="hours-title">Business hours</div>
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+        <div class="hours-row"><span class="hours-day">Public holidays</span><span class="hours-time closed">WhatsApp only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Find us</span></div>
+  <h2 class="sec-h">Visit Our Office<br>in Wuye, Abuja.</h2>
+  <div class="map-inner">
+    <div class="map-info">
+      <div class="info-block">
+        <div class="ib-label">Office address</div>
+        <div class="ib-val">Shop H2G211</div>
+        <div class="ib-sub">Wuye Market, Wuye District<br>Abuja, FCT, Nigeria</div>
+        <a href="https://maps.google.com?q=Wuye+Market+Abuja" class="ib-link" target="_blank">Open in Google Maps ↗</a>
+      </div>
+      <div class="divider-h"></div>
+      <div class="info-block">
+        <div class="ib-label">RC Number</div>
+        <div class="ib-val">9344845</div>
+        <div class="ib-sub">CAC Registered Business · Licensed to operate in Nigeria</div>
+      </div>
+      <div class="divider-h"></div>
+      <div class="info-block">
+        <div class="ib-label">Areas we serve</div>
+        <div class="service-areas">
+          <span class="area-tag">Wuye</span><span class="area-tag">Gwarinpa</span><span class="area-tag">Maitama</span><span class="area-tag">Wuse II</span><span class="area-tag">Garki</span><span class="area-tag">Jabi</span><span class="area-tag">Kubwa</span><span class="area-tag">Lugbe</span><span class="area-tag">Karu</span><span class="area-tag">Karmo</span><span class="area-tag">Gudu</span><span class="area-tag">Lokogoma</span><span class="area-tag">Kuje</span><span class="area-tag">Bwari</span><span class="area-tag">Mpape</span>
+        </div>
+        <div class="ib-sub" style="margin-top:10px;">Not listed? Contact us — we travel across the FCT and neighbouring states for large projects.</div>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <div class="map-grid"></div>
+      <div class="map-pin">
+        <div class="map-pin-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="map-pin-label">Kolex Power Solutions</div>
+        <div class="map-pin-sub">Shop H2G211, Wuye Market, Abuja</div>
+        <a href="https://maps.google.com?q=Wuye+Market+Abuja" target="_blank" class="map-cta" style="margin-top:12px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="social-section">
+  <div class="social-inner">
+    <div class="social-left">
+      <h2>Follow Us for<br>Project Updates</h2>
+      <p>See our latest solar installs, wiring jobs and tips on our social media pages.</p>
+    </div>
+    <div class="social-links">
+      <a href="#" class="soc soc-fb" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc soc-ig" title="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="soc soc-li" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="#" class="soc soc-yt" title="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Common questions</span></div>
+  <h2 class="sec-h">Before You Contact Us —<br>Quick Answers.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Is the site visit and quote really free?</div>
+      <div class="faq-a">Yes, completely. We visit your property, assess your needs, and provide a written quote with zero charge and zero obligation to proceed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How quickly can you start a project?</div>
+      <div class="faq-a">For urgent jobs, we can begin within 24–48 hours of agreement. Larger projects are scheduled based on our team availability — we'll confirm your start date in writing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you work outside Abuja?</div>
+      <div class="faq-a">We primarily serve Abuja FCT, but for large commercial or solar projects we travel to neighbouring states. Contact us to discuss your location and we'll advise if we can help.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer payment plans?</div>
+      <div class="faq-a">Yes. We understand solar and large wiring projects can be significant investments. We offer flexible payment arrangements — contact us to discuss what works for your budget.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I get quotes for multiple services at once?</div>
+      <div class="faq-a">Absolutely. Many clients combine solar installation with wiring upgrades or CCTV. We can assess and quote for all services in a single site visit, often saving you money overall.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What information should I have ready when I contact you?</div>
+      <div class="faq-a">Knowing your property type, location, and roughly what you need (e.g. solar for a 3-bed house, or rewiring an office) is enough to get started. Our engineer will gather the rest during the site visit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <svg width="100" height="30" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fk" fill="#FFFFFF">K</text>
+        <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+        <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+        <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fl" fill="#FFFFFF">lex</text>
+        <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+      </svg>
+      <p>Abuja's trusted solar installation, electrical wiring and CCTV experts. Serving FCT and beyond since 2017.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Solar installation</a></li>
+        <li><a href="#">Electrical wiring</a></li>
+        <li><a href="#">CCTV installation</a></li>
+        <li><a href="#">Rewiring</a></li>
+        <li><a href="#">Electrical inspection</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Our gallery</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Get a quote</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+2347067448460">+234 706 744 8460</a></li>
+        <li><a href="tel:+2347057326269">+234 705 732 6269</a></li>
+        <li><a href="mailto:kolexpowersolutions@gmail.com">kolexpowersolutions@gmail.com</a></li>
+        <li>Shop H2G211, Wuye Market</li>
+        <li>Abuja, FCT, Nigeria</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2025 Kolex Power Solutions Limited. All rights reserved.</div>
+    <div class="foot-rc">RC: 9344845 · CAC Registered · Licensed in Nigeria</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2347067448460" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+</a>
+
+<script>
+function toggleCb(el){el.classList.toggle('sel');}
+
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const loc=document.getElementById('f-location').value.trim();
+  if(!name||!phone||!loc){
+    alert('Please fill in your name, phone number and location to continue.');
+    return;
+  }
+  const services=Array.from(document.querySelectorAll('#services-cb .cb-opt.sel')).map(el=>el.textContent.trim()).join(', ')||'Not specified';
+  const type=document.getElementById('f-type').value||'Not specified';
+  const timeline=document.getElementById('f-timeline').value||'Not specified';
+  const budget=document.getElementById('f-budget').value||'Not specified';
+  const msg=document.getElementById('f-message').value.trim()||'None provided';
+  const wa=`Hello Kolex Power Solutions!%0A%0AI would like to request a quote:%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Location:* ${encodeURIComponent(loc)}%0A*Service(s):* ${encodeURIComponent(services)}%0A*Property type:* ${encodeURIComponent(type)}%0A*Timeline:* ${encodeURIComponent(timeline)}%0A*Budget:* ${encodeURIComponent(budget)}%0A*Details:* ${encodeURIComponent(msg)}%0A%0AKindly advise on next steps. Thank you!`;
+  document.getElementById('form-body').style.display='none';
+  document.getElementById('form-success').classList.add('show');
+  setTimeout(()=>{window.open('https://wa.me/2347067448460?text='+wa,'_blank');},600);
+}
+
+function setTheme(t){
+  document.body.className=t;
+  document.getElementById('btn-d').className='tog'+(t==='dark'?' on':'');
+  document.getElementById('btn-l').className='tog'+(t==='light'?' on':'');
+  const c=t==='dark'?'#FFFFFF':'#181818';
+  ['lk','ll','fk','fl'].forEach(id=>{const e=document.getElementById(id);if(e)e.setAttribute('fill',c);});
+}
+function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');}
+document.body.className='dark';
+</script>
+
+</body>
+</html>

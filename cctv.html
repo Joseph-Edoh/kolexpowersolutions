@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Professional CCTV installation in Abuja — home, business and estate security cameras with remote phone viewing. Kolex Power Solutions RC: 9344845."/>
+<title>CCTV Installation Abuja | Kolex Power Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--brand:#E8431A;--brand-dark:#C03510;--brand-bg:rgba(232,67,26,0.08);--brand-border:rgba(232,67,26,0.22);}
+body{font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .3s,color .3s;}
+body.dark{--bg:#0E0E0E;--bg2:#161616;--bg3:#1F1F1F;--border:#282828;--text:#EFEFEF;--muted:#7A7A7A;--muted2:#333;--card:#161616;--nav-bg:rgba(14,14,14,0.96);}
+body.light{--bg:#F5F3EF;--bg2:#FFFFFF;--bg3:#EDEBE6;--border:#E2DED8;--text:#181818;--muted:#636363;--muted2:#C8C4BC;--card:#FFFFFF;--nav-bg:rgba(245,243,239,0.96);}
+body{background:var(--bg);color:var(--text);}
+
+/* TOGGLE */
+.theme-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.tog{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;user-select:none;}
+.tog svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.tog.on{background:var(--brand);color:#fff;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;gap:16px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--brand);}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.nav-cta{background:var(--brand);color:#fff;padding:8px 20px;border-radius:3px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--brand-dark);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;display:block;}
+.mobile-menu{display:none;flex-direction:column;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:15px;padding:10px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;}
+
+/* SECTION HELPERS */
+.sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.sec-line{width:18px;height:2px;background:var(--brand);}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4.5vw,54px);font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.5px;margin-bottom:40px;}
+.btn-p{background:var(--brand);color:#fff;padding:13px 24px;border-radius:3px;font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-p:hover{background:var(--brand-dark);}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:13px 24px;border-radius:3px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-o:hover{border-color:var(--muted);}
+
+/* HERO */
+.hero{padding:72px 48px 56px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,67,26,0.06) 0%,transparent 65%);pointer-events:none;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:24px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}.breadcrumb a:hover{color:var(--brand);}
+.breadcrumb svg{width:12px;height:12px;stroke:var(--muted2);fill:none;stroke-width:2;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--brand);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(50px,6.5vw,88px);font-weight:900;line-height:.92;letter-spacing:-1px;color:var(--text);margin-bottom:18px;}
+.hero h1 em{color:var(--brand);font-style:normal;display:block;}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.75;max-width:440px;font-weight:300;margin-bottom:32px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
+.hero-contact{display:flex;gap:20px;flex-wrap:wrap;}
+.hc-pill{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);}
+.hc-pill svg{width:13px;height:13px;stroke:var(--brand);fill:none;stroke-width:2;flex-shrink:0;}
+
+/* LIVE MONITOR WIDGET */
+.monitor-widget{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.monitor-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg3);}
+.monitor-title{font-size:12px;font-weight:600;color:var(--text);letter-spacing:.5px;}
+.rec-badge{display:flex;align-items:center;gap:5px;font-size:11px;color:#ef4444;font-weight:600;}
+.rec-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;animation:blink 1s infinite;}
+.monitor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.cam-feed{background:var(--bg2);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.cam-overlay{position:absolute;inset:0;display:flex;flex-direction:column;}
+.cam-lines{flex:1;background-image:repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(232,67,26,0.03) 30px,rgba(232,67,26,0.03) 31px);pointer-events:none;}
+.cam-footer{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:rgba(0,0,0,.5);}
+.cam-label{font-size:10px;color:rgba(255,255,255,.7);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.5px;}
+.cam-time{font-size:9px;color:rgba(255,255,255,.5);font-family:monospace;}
+.cam-icon{position:relative;z-index:1;}
+.cam-icon svg{width:28px;height:28px;stroke:rgba(232,67,26,0.25);fill:none;stroke-width:1.5;}
+.monitor-footer{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.mf-info{font-size:11px;color:var(--muted);}
+.mf-status{display:flex;align-items:center;gap:5px;font-size:11px;color:#4ade80;}
+.mf-status::before{content:'';width:5px;height:5px;border-radius:50%;background:#4ade80;animation:blink 2s infinite;}
+.stats-row{display:flex;gap:10px;margin-top:14px;}
+.stat-pill{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:10px 12px;text-align:center;}
+.sp-n{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--brand);line-height:1;}
+.sp-l{font-size:10px;color:var(--muted);margin-top:2px;}
+
+/* WHY CCTV */
+.why-cctv{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.wc-text{padding:72px 48px;border-right:1px solid var(--border);}
+.wc-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4vw,50px);font-weight:800;color:var(--text);line-height:1.05;margin-bottom:18px;letter-spacing:-.5px;}
+.wc-text p{font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:14px;}
+.stat-cards{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
+.stat-card{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;}
+.sc-ico{width:36px;height:36px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sc-ico svg{width:17px;height:17px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.sc-text strong{font-size:13px;font-weight:500;color:var(--text);display:block;margin-bottom:1px;}
+.sc-text span{font-size:12px;color:var(--muted);}
+.wc-visual{padding:72px 48px;background:var(--bg2);display:flex;flex-direction:column;gap:14px;}
+.vc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;}
+.vc.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.vc-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.vc-val{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--brand);line-height:1;}
+.vc-val span{font-size:14px;font-family:'DM Sans',sans-serif;color:var(--muted);font-weight:300;}
+.vc-sub{font-size:12px;color:var(--muted);margin-top:5px;}
+.vc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.benefit-list{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.bl-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+.bl-item::before{content:'✓';color:var(--brand);font-weight:700;flex-shrink:0;}
+
+/* SERVICES */
+.services{padding:72px 48px;border-bottom:1px solid var(--border);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.svc{background:var(--card);padding:30px 26px;transition:background .25s;position:relative;}
+.svc:hover{background:var(--bg3);}
+.svc-num{font-size:10px;letter-spacing:2px;color:var(--muted2);font-weight:600;margin-bottom:18px;}
+.svc-ico{width:42px;height:42px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.svc-ico svg{width:20px;height:20px;stroke:var(--brand);fill:none;stroke-width:1.7;}
+.svc h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--text);margin-bottom:10px;}
+.svc p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+.svc-items{margin-top:14px;display:flex;flex-direction:column;gap:5px;}
+.svc-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;}
+.svc-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--brand);flex-shrink:0;}
+.svc-badge{position:absolute;top:16px;right:16px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+
+/* CAMERA TYPES */
+.cameras{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.cam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.cam-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px 20px;transition:background .25s;position:relative;}
+.cam-card:hover{background:var(--bg3);}
+.cam-card.featured{border-color:var(--brand-border);border-width:2px;}
+.cam-ico-wrap{width:52px;height:52px;border-radius:8px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.cam-ico-wrap svg{width:24px;height:24px;stroke:var(--brand);fill:none;stroke-width:1.6;}
+.cam-card h4{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.cam-card p{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;}
+.cam-specs{margin-top:14px;display:flex;flex-direction:column;gap:5px;}
+.cam-spec{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;}
+.cam-spec::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--brand);flex-shrink:0;}
+.brand-tag{display:inline-block;margin-top:12px;font-size:10px;color:var(--brand);border:1px solid var(--brand-border);padding:2px 8px;border-radius:3px;}
+.cam-featured-badge{position:absolute;top:14px;right:14px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+
+/* PROCESS */
+.process{padding:72px 48px;border-bottom:1px solid var(--border);}
+.process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.step{background:var(--card);padding:28px 26px;display:flex;gap:20px;align-items:flex-start;transition:background .2s;}
+.step:hover{background:var(--bg3);}
+.step-n{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--brand);line-height:1;flex-shrink:0;width:44px;}
+.step-body h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.step-body p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+
+/* PACKAGES */
+.packages{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.pkg{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:26px 22px;position:relative;transition:background .25s;}
+.pkg:hover{background:var(--bg3);}
+.pkg.featured{border-color:var(--brand-border);border-width:2px;}
+.pkg-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 12px;border-radius:0 0 6px 6px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
+.pkg-ico{width:44px;height:44px;border-radius:8px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.pkg-ico svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.6;}
+.pkg-name{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.pkg-desc{font-size:12px;color:var(--brand);font-weight:500;margin-bottom:16px;}
+.pkg-features{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+.pkg-feat{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--muted);}
+.pkg-feat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0;margin-top:5px;}
+.pkg-cta{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:11px;border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:all .2s;text-decoration:none;display:block;}
+.pkg.featured .pkg-cta{background:var(--brand);border-color:var(--brand);color:#fff;}
+.pkg-cta:hover{border-color:var(--brand);color:var(--brand);}
+.pkg.featured .pkg-cta:hover{background:var(--brand-dark);}
+
+/* REMOTE VIEWING */
+.remote{padding:72px 48px;border-bottom:1px solid var(--border);}
+.remote-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border);}
+.remote-text{background:var(--card);padding:40px 36px;display:flex;flex-direction:column;justify-content:center;}
+.remote-text h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--text);line-height:1.05;margin-bottom:16px;letter-spacing:-.5px;}
+.remote-text p{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:24px;}
+.remote-features{display:flex;flex-direction:column;gap:10px;}
+.rf{display:flex;align-items:flex-start;gap:10px;}
+.rf-ico{width:28px;height:28px;border-radius:4px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.rf-ico svg{width:13px;height:13px;stroke:var(--brand);fill:none;stroke-width:2;}
+.rf strong{font-size:13px;font-weight:600;color:var(--text);display:block;margin-bottom:1px;}
+.rf span{font-size:12px;color:var(--muted);}
+.phone-demo{background:var(--bg2);padding:40px;display:flex;align-items:center;justify-content:center;}
+.phone-frame{width:200px;background:var(--card);border:2px solid var(--border);border-radius:24px;overflow:hidden;}
+.phone-notch{width:60px;height:14px;background:var(--bg2);border-radius:0 0 10px 10px;margin:0 auto;display:block;}
+.phone-statusbar{display:flex;justify-content:space-between;padding:8px 14px 4px;font-size:10px;color:var(--muted);}
+.phone-app{padding:0 10px 16px;}
+.phone-app-header{font-size:11px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
+.phone-cams{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:10px;}
+.phone-cam{background:var(--bg3);border:1px solid var(--border);border-radius:5px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.phone-cam-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 12px,rgba(232,67,26,0.04) 12px,rgba(232,67,26,0.04) 13px);}
+.phone-cam svg{width:18px;height:18px;stroke:rgba(232,67,26,0.2);fill:none;stroke-width:1.5;position:relative;z-index:1;}
+.phone-cam-label{position:absolute;bottom:3px;left:4px;font-size:8px;color:rgba(255,255,255,.5);font-family:monospace;}
+.phone-cam-rec{position:absolute;top:3px;right:4px;width:5px;height:5px;background:#ef4444;border-radius:50%;animation:blink 1s infinite;}
+.phone-alert{background:rgba(232,67,26,0.1);border:1px solid var(--brand-border);border-radius:5px;padding:7px 10px;display:flex;align-items:center;gap:7px;}
+.phone-alert svg{width:13px;height:13px;stroke:var(--brand);fill:none;stroke-width:2;flex-shrink:0;}
+.phone-alert span{font-size:10px;color:var(--brand);font-weight:500;}
+.phone-bottom{height:4px;width:40px;background:var(--border);border-radius:2px;margin:12px auto 10px;}
+
+/* BENEFITS */
+.benefits{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ben{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:22px 20px;display:flex;gap:14px;align-items:flex-start;}
+.ben-ico{width:36px;height:36px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ben-ico svg{width:17px;height:17px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.ben h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.ben p{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300;}
+
+/* TESTIMONIALS */
+.testi{padding:72px 48px;border-bottom:1px solid var(--border);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;}
+.tc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px 20px;position:relative;}
+.tc::before{content:'\201C';font-size:64px;font-weight:900;color:rgba(232,67,26,0.08);position:absolute;top:6px;left:14px;line-height:1;font-family:serif;}
+.stars{color:var(--brand);font-size:14px;letter-spacing:2px;margin-bottom:6px;}
+.tc p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;position:relative;z-index:1;}
+.tc-auth{margin-top:16px;display:flex;align-items:center;gap:9px;}
+.av{width:32px;height:32px;border-radius:50%;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--brand);flex-shrink:0;}
+.tc-name{font-size:13px;font-weight:600;color:var(--text);}
+.tc-loc{font-size:10px;color:var(--muted);}
+
+/* FAQ */
+.faq{padding:72px 48px;border-bottom:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-item{background:var(--card);padding:24px 26px;transition:background .2s;}
+.faq-item:hover{background:var(--bg3);}
+.faq-q{font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;}
+.faq-q::before{content:'Q';font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-bg);border:1px solid var(--brand-border);padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;padding-left:30px;}
+
+/* CTA */
+.cta{padding:72px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(232,67,26,0.06),transparent 70%);pointer-events:none;}
+.cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6vw,72px);font-weight:900;color:var(--text);letter-spacing:-1px;line-height:.95;margin-bottom:14px;}
+.cta h2 em{color:var(--brand);font-style:normal;}
+.cta p{font-size:15px;color:var(--muted);margin-bottom:32px;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-note{margin-top:20px;font-size:12px;color:var(--muted2);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:36px 48px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-top:14px;max-width:240px;}
+.foot-col h4{font-size:12px;font-weight:600;color:var(--text);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.foot-col ul li a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-col ul li a:hover{color:var(--brand);}
+.foot-col ul li{font-size:13px;color:var(--muted);}
+.foot-bottom{border-top:1px solid var(--border);padding:20px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.foot-copy,.foot-rc{font-size:12px;color:var(--muted2);}
+.wa-float{position:fixed;bottom:22px;right:22px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.35);}
+.wa-float svg{width:24px;height:24px;fill:white;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px;}.nav-links{display:none;}.hamburger{display:flex;}
+  .hero{padding:48px 24px 40px;}.hero-inner{grid-template-columns:1fr;gap:36px;}
+  .why-cctv{grid-template-columns:1fr;}.wc-text{border-right:none;border-bottom:1px solid var(--border);padding:48px 24px;}.wc-visual{padding:48px 24px;}
+  .services,.cameras,.process,.packages,.remote,.benefits,.testi,.faq,.cta{padding:48px 24px;}
+  .svc-grid,.cam-grid{grid-template-columns:1fr 1fr;}
+  .process-grid{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr 1fr;}
+  .remote-inner{grid-template-columns:1fr;}
+  .ben-grid{grid-template-columns:1fr 1fr;}
+  .testi-grid{grid-template-columns:1fr 1fr;}.tc:last-child{grid-column:1/-1;}
+  .faq-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr 1fr;padding:32px 24px;gap:28px;}.foot-bottom{padding:16px 24px;}
+}
+@media(max-width:600px){
+  nav{padding:0 16px;height:60px;}
+  .hero{padding:36px 16px 32px;}.hero-actions{flex-direction:column;}.btn-p,.btn-o{justify-content:center;}
+  .wc-text,.wc-visual{padding:36px 16px;}.vc-row{grid-template-columns:1fr 1fr;}
+  .svc-grid,.cam-grid,.process-grid,.pkg-grid,.ben-grid,.faq-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}.tc:last-child{grid-column:auto;}
+  .services,.cameras,.process,.packages,.remote,.benefits,.testi,.faq,.cta{padding:36px 16px;}
+  .remote-text,.phone-demo{padding:28px 20px;}
+  .cta-btns{flex-direction:column;align-items:center;}.cta-btns .btn-p,.cta-btns .btn-o{width:100%;max-width:300px;justify-content:center;}
+  footer{grid-template-columns:1fr;padding:24px 16px;gap:20px;}.foot-bottom{padding:16px;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body class="dark">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" style="text-decoration:none">
+    <svg width="110" height="32" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" class="logo-k" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" class="logo-t" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="kolex_solar_page.html">Solar</a></li>
+    <li><a href="kolex_wiring_page.html">Wiring</a></li>
+    <li><a href="cctv.html" class="active">CCTV</a></li>
+    <li><a href="kolex_contact_quote_page.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="theme-toggle">
+      <div class="tog on" id="btn-d" onclick="setTheme('dark')"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark</div>
+      <div class="tog" id="btn-l" onclick="setTheme('light')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light</div>
+    </div>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="index.html">Home</a><a href="solar.html">Solar</a><a href="wiring.html">Wiring</a>
+  <a href="cctv.html" style="color:var(--brand)">CCTV</a><a href="contact.html">Contact</a>
+  <a href="contact.html" style="color:var(--brand);font-weight:600">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg><span style="color:var(--brand)">CCTV Installation</span></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">24/7 Surveillance · Remote Viewing · Professional Install</div>
+      <h1>See Everything.<br><em>Miss Nothing.</em></h1>
+      <p class="hero-sub">Professional CCTV installation for homes and businesses across Abuja. Monitor your property live from your phone — anywhere in the world, at any time.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/2347067448460" class="btn-p">
+          <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+          Get a Free Quote
+        </a>
+        <a href="#packages" class="btn-o">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          View Packages
+        </a>
+      </div>
+      <div class="hero-contact">
+        <div class="hc-pill"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+234 706 744 8460</div>
+        <div class="hc-pill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Wuye Market, Abuja</div>
+      </div>
+    </div>
+    <!-- LIVE MONITOR WIDGET -->
+    <div>
+      <div class="monitor-widget">
+        <div class="monitor-header">
+          <span class="monitor-title">CCTV LIVE FEED</span>
+          <div class="rec-badge"><div class="rec-dot"></div>REC</div>
+        </div>
+        <div class="monitor-grid">
+          <div class="cam-feed"><div class="cam-overlay"><div class="cam-lines"></div><div class="cam-footer"><span class="cam-label">CAM 01 — FRONT GATE</span><span class="cam-time" id="t1">--:--:--</span></div></div><div class="cam-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div></div>
+          <div class="cam-feed"><div class="cam-overlay"><div class="cam-lines"></div><div class="cam-footer"><span class="cam-label">CAM 02 — ENTRANCE</span><span class="cam-time" id="t2">--:--:--</span></div></div><div class="cam-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div></div>
+          <div class="cam-feed"><div class="cam-overlay"><div class="cam-lines"></div><div class="cam-footer"><span class="cam-label">CAM 03 — BACK YARD</span><span class="cam-time" id="t3">--:--:--</span></div></div><div class="cam-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div></div>
+          <div class="cam-feed"><div class="cam-overlay"><div class="cam-lines"></div><div class="cam-footer"><span class="cam-label">CAM 04 — PARKING</span><span class="cam-time" id="t4">--:--:--</span></div></div><div class="cam-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div></div>
+        </div>
+        <div class="monitor-footer"><span class="mf-info">4 cameras · 1080p HD · Night vision active</span><div class="mf-status">System online</div></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-pill"><div class="sp-n">500+</div><div class="sp-l">Cameras installed</div></div>
+        <div class="stat-pill"><div class="sp-n">1–2</div><div class="sp-l">Days install time</div></div>
+        <div class="stat-pill"><div class="sp-n">24/7</div><div class="sp-l">Recording</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CCTV -->
+<section class="why-cctv">
+  <div class="wc-text">
+    <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Why you need it</span></div>
+    <h2>Your Property Doesn't Protect Itself.</h2>
+    <p>Security threats are real in Nigerian cities. Break-ins, theft, vandalism and staff misconduct are daily concerns for homeowners and business operators. CCTV doesn't just record incidents — it deters them entirely.</p>
+    <p>With modern IP camera systems, you can monitor your home or office live from your phone in Lagos, London or anywhere else — 24 hours a day, every day of the year.</p>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="sc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="sc-text"><strong>Deters criminals before they act</strong><span>Visible cameras reduce break-in attempts by up to 60% according to security research.</span></div></div>
+      <div class="stat-card"><div class="sc-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="sc-text"><strong>Watch from your phone anywhere</strong><span>Live view and playback on Android or iPhone from anywhere in the world via mobile app.</span></div></div>
+      <div class="stat-card"><div class="sc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="sc-text"><strong>Always recording, never sleeping</strong><span>Continuous 24/7 recording with motion-triggered alerts sent directly to your phone.</span></div></div>
+    </div>
+  </div>
+  <div class="wc-visual">
+    <div class="vc accent"><div class="vc-label">Crime deterrence rate with visible CCTV</div><div class="vc-val">60% <span>reduction</span></div><div class="vc-sub">Research-backed deterrence for residential and commercial properties</div></div>
+    <div class="vc-row">
+      <div class="vc"><div class="vc-label">Storage retention</div><div class="vc-val">30 <span>days</span></div><div class="vc-sub">Standard loop recording</div></div>
+      <div class="vc"><div class="vc-label">Night vision range</div><div class="vc-val">30m <span>+</span></div><div class="vc-sub">IR night vision distance</div></div>
+    </div>
+    <div class="vc"><div class="vc-label">What you get with Kolex CCTV</div><div class="benefit-list"><div class="bl-item">Live feed on your phone from anywhere</div><div class="bl-item">Motion alerts sent directly to you</div><div class="bl-item">Full HD or 4K resolution options</div><div class="bl-item">Night vision — clear footage in darkness</div><div class="bl-item">30-day recording loop with expandable storage</div><div class="bl-item">Professional cable concealment and mounting</div></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">What we install</span></div>
+  <h2 class="sec-h">CCTV Solutions for<br>Every Property.</h2>
+  <div class="svc-grid">
+    <div class="svc"><span class="svc-badge">Most Popular</span><div class="svc-num">01</div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Home CCTV</h3><p>Protect your family and property with strategically placed cameras covering all entry points, perimeter and key indoor areas. Full remote viewing from your phone.</p><div class="svc-items"><div class="svc-item">Entry gates and front door</div><div class="svc-item">Perimeter and compound</div><div class="svc-item">Indoor areas as required</div><div class="svc-item">Night vision throughout</div></div></div>
+    <div class="svc"><div class="svc-num">02</div><div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg></div><h3>Business CCTV</h3><p>Monitor your shop, office, warehouse or factory around the clock. Manage staff, prevent internal theft, and have evidence for insurance or legal disputes if needed.</p><div class="svc-items"><div class="svc-item">Shop floor and tills</div><div class="svc-item">Offices and meeting rooms</div><div class="svc-item">Loading bays and warehouses</div><div class="svc-item">Car parks and access points</div></div></div>
+    <div class="svc"><div class="svc-num">03</div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Estate & Multi-Property</h3><p>Comprehensive CCTV for housing estates, compounds and gated communities. Central NVR with access for multiple authorized users.</p><div class="svc-items"><div class="svc-item">Estate entrance and exit points</div><div class="svc-item">Common areas and walkways</div><div class="svc-item">Centralized recording room</div><div class="svc-item">Multi-user remote access</div></div></div>
+    <div class="svc"><div class="svc-num">04</div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>System Upgrades</h3><p>Already have an old analog CCTV system? We upgrade to HD IP cameras while maximizing your existing cabling wherever possible.</p><div class="svc-items"><div class="svc-item">Analog to IP upgrade</div><div class="svc-item">Resolution upgrade to HD/4K</div><div class="svc-item">Adding remote viewing to old systems</div><div class="svc-item">Expanding camera count</div></div></div>
+    <div class="svc"><div class="svc-num">05</div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><h3>Maintenance & Repair</h3><p>Camera not recording? App not connecting? We diagnose and repair existing CCTV systems of any brand, and offer annual maintenance contracts.</p><div class="svc-items"><div class="svc-item">Camera fault diagnosis and repair</div><div class="svc-item">NVR/DVR replacement</div><div class="svc-item">App and network reconfiguration</div><div class="svc-item">Annual maintenance contracts</div></div></div>
+    <div class="svc"><div class="svc-num">06</div><div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><h3>Mobile & Remote Setup</h3><p>We set up the full remote viewing app on your phone, configure motion alerts, and ensure you can access your footage before we leave.</p><div class="svc-items"><div class="svc-item">Phone app setup and training</div><div class="svc-item">Motion alert configuration</div><div class="svc-item">Cloud storage options</div><div class="svc-item">Multi-device access</div></div></div>
+  </div>
+</section>
+
+<!-- CAMERA TYPES -->
+<section class="cameras">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Camera types</span></div>
+  <h2 class="sec-h">The Right Camera<br>for Every Location.</h2>
+  <div class="cam-grid">
+    <div class="cam-card"><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><h4>Dome Camera</h4><p>Discreet, vandal-resistant cameras ideal for indoor use, offices and shops. The dome casing makes it difficult to tell which direction the camera is pointing.</p><div class="cam-specs"><div class="cam-spec">Best for: indoor, offices, shops</div><div class="cam-spec">Resolution: 2MP–8MP (Full HD to 4K)</div><div class="cam-spec">Vandal-proof housing available</div></div><span class="brand-tag">Hikvision · Dahua</span></div>
+    <div class="cam-card featured"><div class="cam-featured-badge">Most Used</div><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><h4>Bullet Camera</h4><p>Long-range, weather-resistant cameras for outdoor coverage. Visible and deterrent by design — ideal for gates, driveways, parking lots and perimeters.</p><div class="cam-specs"><div class="cam-spec">Best for: outdoor, gates, perimeter</div><div class="cam-spec">Night vision: up to 30–50m IR range</div><div class="cam-spec">Weatherproof IP66/67 rated</div></div><span class="brand-tag">Hikvision · Dahua · UniView</span></div>
+    <div class="cam-card"><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><path d="M1 6l10.5 6L22 6M1 6a2 2 0 012-2h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V6z"/></svg></div><h4>PTZ Camera</h4><p>Pan-Tilt-Zoom cameras that can be remotely controlled to rotate 360°, tilt and zoom. Perfect for large open spaces, estates and commercial properties.</p><div class="cam-specs"><div class="cam-spec">Best for: large areas, estates</div><div class="cam-spec">360° pan, 90° tilt, 20x optical zoom</div><div class="cam-spec">Auto-tracking on motion available</div></div><span class="brand-tag">Hikvision · Dahua</span></div>
+    <div class="cam-card"><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>IP / Network Camera</h4><p>High-definition cameras that transmit footage over your network. Support remote viewing, cloud storage and integration with smart home systems.</p><div class="cam-specs"><div class="cam-spec">Best for: smart homes, businesses</div><div class="cam-spec">Resolution: up to 4K Ultra HD</div><div class="cam-spec">Cloud and local storage options</div></div><span class="brand-tag">Hikvision · Reolink · TP-Link</span></div>
+    <div class="cam-card"><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><h4>Thermal Camera</h4><p>Detects heat signatures — works in complete darkness and smoke. Used for high-security perimeters, industrial sites and critical infrastructure.</p><div class="cam-specs"><div class="cam-spec">Best for: high-security, industrial</div><div class="cam-spec">Works in total darkness and fog</div><div class="cam-spec">Triggers on body heat, not light</div></div><span class="brand-tag">Hikvision · FLIR</span></div>
+    <div class="cam-card"><div class="cam-ico-wrap"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="2"/><path d="M12 8v2"/></svg></div><h4>Hidden / Covert Camera</h4><p>Discreet cameras for covert monitoring. Used for internal investigation, retail loss prevention and sensitive environments.</p><div class="cam-specs"><div class="cam-spec">Best for: retail, investigations</div><div class="cam-spec">Pinhole lens, virtually invisible</div><div class="cam-spec">Full HD recording</div></div><span class="brand-tag">Available on request</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">How we work</span></div>
+  <h2 class="sec-h">From Assessment<br>to Live Footage.</h2>
+  <div class="process-grid">
+    <div class="step"><div class="step-n">1</div><div class="step-body"><h4>Free security assessment</h4><p>Our engineer visits your property to identify vulnerable entry points, blind spots and optimal camera placement. We assess your needs and recommend the most cost-effective solution.</p></div></div>
+    <div class="step"><div class="step-n">2</div><div class="step-body"><h4>System design & quotation</h4><p>We design a complete camera layout — number and type of cameras, cable routing, NVR location and storage capacity. You receive a clear written quote before any work begins.</p></div></div>
+    <div class="step"><div class="step-n">3</div><div class="step-body"><h4>Professional installation</h4><p>Our team installs all cameras, runs cables neatly and concealed, sets up the NVR recording unit and connects everything to your network. Usually completed in 1–2 days.</p></div></div>
+    <div class="step"><div class="step-n">4</div><div class="step-body"><h4>App setup & training</h4><p>We install and configure the viewing app on your phone, set up motion detection alerts and ensure you can view live footage before we leave your property.</p></div></div>
+    <div class="step"><div class="step-n">5</div><div class="step-body"><h4>Testing & sign-off</h4><p>Every camera is tested for image quality, night vision, motion detection and remote access. We confirm all cameras are recording and the system is working perfectly.</p></div></div>
+    <div class="step"><div class="step-n">6</div><div class="step-body"><h4>Ongoing support</h4><p>We remain available after installation for any technical questions. Annual maintenance contracts available for businesses and estates that want scheduled checkups.</p></div></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">CCTV packages</span></div>
+  <h2 class="sec-h">A Package for<br>Every Property Size.</h2>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="pkg-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <div class="pkg-name">Home Basic</div><div class="pkg-desc">4 camera system</div>
+      <div class="pkg-features"><div class="pkg-feat">4 × HD bullet/dome cameras (2MP)</div><div class="pkg-feat">4-channel NVR with 1TB HDD</div><div class="pkg-feat">Night vision on all cameras</div><div class="pkg-feat">Mobile app remote viewing</div><div class="pkg-feat">30-day recording loop</div><div class="pkg-feat">Professional installation included</div></div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-badge">Best Value</div>
+      <div class="pkg-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+      <div class="pkg-name">Home Pro</div><div class="pkg-desc">8 camera system</div>
+      <div class="pkg-features"><div class="pkg-feat">8 × Full HD cameras (4MP)</div><div class="pkg-feat">8-channel NVR with 2TB HDD</div><div class="pkg-feat">Night vision + colour night option</div><div class="pkg-feat">Motion detection alerts to phone</div><div class="pkg-feat">30-day recording loop</div><div class="pkg-feat">Full app setup on 2 devices</div></div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg></div>
+      <div class="pkg-name">Business</div><div class="pkg-desc">16+ camera system</div>
+      <div class="pkg-features"><div class="pkg-feat">16+ cameras, mixed types (HD/4K)</div><div class="pkg-feat">16-channel NVR with 4TB+ HDD</div><div class="pkg-feat">PTZ camera option available</div><div class="pkg-feat">Multi-user remote access</div><div class="pkg-feat">60-day storage option</div><div class="pkg-feat">Annual maintenance contract</div></div>
+      <a href="https://wa.me/2347067448460" class="pkg-cta">Get a Quote</a>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:16px;text-align:center">All packages include free site assessment, professional cable management and full system testing. Prices depend on property size and cable runs — contact us for a precise quote.</p>
+</section>
+
+<!-- REMOTE VIEWING -->
+<section class="remote">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Remote viewing</span></div>
+  <h2 class="sec-h">Watch Your Property<br>From Anywhere.</h2>
+  <div class="remote-inner">
+    <div class="remote-text">
+      <h3>Your cameras.<br>Your phone.<br>Anywhere in the world.</h3>
+      <p>Every Kolex CCTV system comes with full remote viewing set up on your smartphone before we leave. Watch live footage, review recordings and receive instant motion alerts — whether you're in Lagos, London or anywhere in between.</p>
+      <div class="remote-features">
+        <div class="rf"><div class="rf-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><strong>Live view any time</strong><span>Stream all cameras simultaneously in real time from your phone or PC</span></div></div>
+        <div class="rf"><div class="rf-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Motion alerts instantly</strong><span>Get push notifications the moment movement is detected in any zone</span></div></div>
+        <div class="rf"><div class="rf-ico"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><div><strong>Playback and download</strong><span>Review and save footage clips directly from your phone to share with police or insurers</span></div></div>
+        <div class="rf"><div class="rf-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div><strong>Share access with family</strong><span>Grant viewing access to trusted family members or co-owners on their own devices</span></div></div>
+      </div>
+    </div>
+    <div class="phone-demo">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-statusbar"><span>9:41</span><span>▮▮▮▮</span></div>
+        <div class="phone-app">
+          <div class="phone-app-header"><span>Kolex Cam</span><div class="rec-badge" style="font-size:9px"><div class="rec-dot" style="width:5px;height:5px"></div>LIVE</div></div>
+          <div class="phone-cams">
+            <div class="phone-cam"><div class="phone-cam-lines"></div><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="phone-cam-label">CAM 01</div><div class="phone-cam-rec"></div></div>
+            <div class="phone-cam"><div class="phone-cam-lines"></div><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="phone-cam-label">CAM 02</div><div class="phone-cam-rec"></div></div>
+            <div class="phone-cam"><div class="phone-cam-lines"></div><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="phone-cam-label">CAM 03</div><div class="phone-cam-rec"></div></div>
+            <div class="phone-cam"><div class="phone-cam-lines"></div><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="phone-cam-label">CAM 04</div><div class="phone-cam-rec"></div></div>
+          </div>
+          <div class="phone-alert"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Motion detected — Front gate</span></div>
+        </div>
+        <div class="phone-bottom"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Key benefits</span></div>
+  <h2 class="sec-h">Six Reasons to Install<br>CCTV Today.</h2>
+  <div class="ben-grid">
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Deter criminals before they act</h4><p>Visible cameras are proven to discourage theft, vandalism and break-ins before they even start.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div><h4>Monitor remotely from your phone</h4><p>Check in on your home or business from anywhere — live view, playback and motion alerts at your fingertips.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Monitor staff and operations</h4><p>Keep an eye on staff performance and internal operations without being physically present.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><h4>Evidence for insurance claims</h4><p>Video evidence can support insurance claims, police reports and legal proceedings if needed.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>24/7 recording — never miss anything</h4><p>Continuous recording captures every moment, stored on-site and retrievable for up to 60 days.</p></div></div>
+    <div class="ben"><div class="ben-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><h4>Reduce insurance premiums</h4><p>Many insurers offer discounts for properties with professional CCTV systems — recovering cost over time.</p></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Client reviews</span></div>
+  <h2 class="sec-h">What Our Clients Say.</h2>
+  <div class="testi-grid">
+    <div class="tc"><div class="stars">★★★★★</div><p>Our CCTV was installed quickly and I can monitor my shop from my phone in Lagos. I get alerts when staff open up in the morning. Very reliable — highly recommended!</p><div class="tc-auth"><div class="av">EM</div><div><div class="tc-name">Engr. Emmanuel Mike</div><div class="tc-loc">Maitama, Abuja · Shop CCTV</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>Kolex installed 12 cameras on our estate. Very neat work, all cables properly concealed, and the system has been working perfectly for over a year. Excellent team.</p><div class="tc-auth"><div class="av">FS</div><div><div class="tc-name">Mrs. Fatima Sule</div><div class="tc-loc">Gwarinpa Estate, Abuja · Estate CCTV</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>We had an old system that wasn't working. Kolex upgraded our cameras to HD. The difference is night and day. Clear footage, app works perfectly.</p><div class="tc-auth"><div class="av">RO</div><div><div class="tc-name">Mr. Rotimi Oladapo</div><div class="tc-loc">Wuse II, Abuja · System upgrade</div></div></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Common questions</span></div>
+  <h2 class="sec-h">CCTV FAQs —<br>Answered Simply.</h2>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q">How many cameras do I need for my home?</div><div class="faq-a">Most 3–4 bedroom homes are well covered by 4–8 cameras. We recommend covering the front gate, main entrance, back of the house and key indoor areas. Our engineer will advise during your free site visit.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I view my cameras on multiple phones?</div><div class="faq-a">Yes. Most NVR systems support multiple users. We can set up access for your spouse, family members or business partners on their own devices during installation.</div></div>
+    <div class="faq-item"><div class="faq-q">How long is footage stored?</div><div class="faq-a">Standard systems loop-record over 30 days. We can configure longer storage (60+ days) with a larger hard drive, or add cloud storage so footage is backed up off-site.</div></div>
+    <div class="faq-item"><div class="faq-q">Do the cameras work at night?</div><div class="faq-a">Yes. All our cameras include IR night vision with a minimum 20–30m range. We also offer colour night vision cameras that produce clearer images in low-light conditions.</div></div>
+    <div class="faq-item"><div class="faq-q">What if my internet goes off?</div><div class="faq-a">Cameras continue recording to your NVR hard drive even without internet — you'll just lose remote viewing until the connection is restored. Local footage is never affected by internet outages.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you work on systems from other installers?</div><div class="faq-a">Yes. We can repair, upgrade or expand most existing CCTV systems regardless of who installed them — as long as it's a recognised brand like Hikvision, Dahua or similar.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="sec-tag" style="justify-content:center;margin-bottom:14px"><div class="sec-line"></div><span class="sec-label">Secure your property</span><div class="sec-line"></div></div>
+  <h2>Don't Wait Until<br><em>Something Goes Wrong.</em></h2>
+  <p>Get a free, no-obligation security assessment and CCTV quote. Our engineer visits your property and recommends the best solution for your budget.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/2347067448460" class="btn-p"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>WhatsApp Us Now</a>
+    <a href="tel:+2347067448460" class="btn-o">Call +234 706 744 8460</a>
+    <a href="contact.html" class="btn-o">Get a Quote Form</a>
+  </div>
+  <div class="cta-note">kolexpowersolutions@gmail.com · Shop H2G211, Wuye Market, Abuja, FCT</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <svg width="100" height="30" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" class="logo-k" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" class="logo-t" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+    <p>Abuja's trusted solar installation, electrical wiring and CCTV experts. Serving FCT and beyond since 2017.</p>
+  </div>
+  <div class="foot-col"><h4>Services</h4><ul><li><a href="solar.html">Solar installation</a></li><li><a href="wiring.html">Electrical wiring</a></li><li><a href="cctv.html">CCTV installation</a></li><li><a href="wiring.html">Rewiring</a></li><li><a href="wiring.html">Fault repair</a></li></ul></div>
+  <div class="foot-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="contact.html">Get a quote</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+  <div class="foot-col"><h4>Contact</h4><ul><li><a href="tel:+2347067448460">+234 706 744 8460</a></li><li><a href="tel:+2347057326269">+234 705 732 6269</a></li><li><a href="mailto:kolexpowersolutions@gmail.com">kolexpowersolutions@gmail.com</a></li><li>Shop H2G211, Wuye Market</li><li>Abuja, FCT, Nigeria</li></ul></div>
+</footer>
+<div class="foot-bottom">
+  <div class="foot-copy">© 2025 Kolex Power Solutions Limited. All rights reserved.</div>
+  <div class="foot-rc">RC: 9344845 · CAC Registered · Licensed in Nigeria</div>
+</div>
+
+<a href="https://wa.me/2347067448460" class="wa-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+</a>
+
+<script>
+function setTheme(t){
+  document.body.className=t;
+  document.getElementById('btn-d').className='tog'+(t==='dark'?' on':'');
+  document.getElementById('btn-l').className='tog'+(t==='light'?' on':'');
+  const c=t==='dark'?'#FFFFFF':'#181818';
+  document.querySelectorAll('.logo-k,.logo-t').forEach(el=>el.setAttribute('fill',c));
+  localStorage.setItem('kolex-theme',t);
+}
+function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');}
+const saved=localStorage.getItem('kolex-theme')||'dark';
+setTheme(saved);
+
+function updateTimes(){
+  const t=new Date().toTimeString().split(' ')[0];
+  ['t1','t2','t3','t4'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t;});
+}
+updateTimes();
+setInterval(updateTimes,1000);
+</script>
+</body>
+</html>

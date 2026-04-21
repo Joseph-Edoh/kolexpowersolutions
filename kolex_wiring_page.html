@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolex Power Solutions - Wiring Services</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--brand:#E8431A;--brand-dark:#C03510;--brand-bg:rgba(232,67,26,0.08);--brand-border:rgba(232,67,26,0.22);}
+body{font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .3s,color .3s;}
+body.dark{--bg:#0E0E0E;--bg2:#161616;--bg3:#1F1F1F;--border:#282828;--text:#EFEFEF;--muted:#7A7A7A;--muted2:#333;--card:#161616;--nav-bg:rgba(14,14,14,0.96);}
+body.light{--bg:#F5F3EF;--bg2:#FFFFFF;--bg3:#EDEBE6;--border:#E2DED8;--text:#181818;--muted:#636363;--muted2:#C8C4BC;--card:#FFFFFF;--nav-bg:rgba(245,243,239,0.96);}
+body{background:var(--bg);color:var(--text);}
+
+/* TOGGLE */
+.theme-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.tog{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.tog svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.tog.on{background:var(--brand);color:#fff;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;gap:16px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--brand);}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.nav-cta{background:var(--brand);color:#fff;padding:8px 20px;border-radius:3px;font-size:13px;font-weight:500;text-decoration:none;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;flex-direction:column;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:15px;padding:10px 0;border-bottom:1px solid var(--border);}
+.nav-logo {flex-shrink:0;}
+.nav-logo svg {width:100%;height:auto;max-width:110px;}
+
+/* HERO */
+.hero{padding:72px 48px 60px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(232,67,26,0.06) 0%,transparent 65%);pointer-events:none;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:24px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--brand);}
+.breadcrumb svg{width:12px;height:12px;stroke:var(--muted2);fill:none;stroke-width:2;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--brand);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,7vw,90px);font-weight:900;line-height:.92;letter-spacing:-1px;color:var(--text);margin-bottom:20px;}
+.hero h1 em{color:var(--brand);font-style:normal;display:block;}
+.hero-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;font-weight:300;margin-bottom:36px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-p{background:var(--brand);color:#fff;padding:14px 28px;border-radius:3px;font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-p:hover{background:var(--brand-dark);}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:14px 28px;border-radius:3px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-o:hover{border-color:var(--muted);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.hs{background:var(--card);padding:20px 24px;}
+.hs-n{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:var(--brand);line-height:1;}
+.hs-l{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* SECTION HELPERS */
+.sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.sec-line{width:18px;height:2px;background:var(--brand);}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brand);font-weight:600;}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4.5vw,54px);font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-.5px;margin-bottom:40px;}
+
+/* DANGER SECTION */
+.danger{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.danger-text{padding:72px 48px;border-right:1px solid var(--border);}
+.danger-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4vw,50px);font-weight:800;color:var(--text);line-height:1.05;margin-bottom:18px;letter-spacing:-.5px;}
+.danger-text p{font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:14px;}
+.risk-list{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+.risk{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:rgba(232,67,26,0.05);border:1px solid rgba(232,67,26,0.15);border-radius:5px;}
+.risk-ico{width:30px;height:30px;border-radius:4px;background:rgba(232,67,26,0.12);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.risk-ico svg{width:14px;height:14px;stroke:var(--brand);fill:none;stroke-width:2;}
+.risk strong{font-size:13px;font-weight:500;color:var(--text);display:block;margin-bottom:1px;}
+.risk span{font-size:12px;color:var(--muted);}
+.danger-visual{padding:72px 48px;background:var(--bg2);display:flex;flex-direction:column;gap:14px;}
+.dv-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;}
+.dv-card.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.dv-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.dv-val{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--brand);line-height:1;}
+.dv-val span{font-size:14px;font-family:'DM Sans',sans-serif;color:var(--muted);font-weight:300;}
+.dv-sub{font-size:12px;color:var(--muted);margin-top:5px;}
+.dv-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.check-list{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+.chk::before{content:'';width:16px;height:16px;border-radius:3px;background:var(--brand-bg);border:1px solid var(--brand-border);flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8431A' stroke-width='2.5'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-size:10px;background-repeat:no-repeat;background-position:center;}
+
+/* SERVICES OFFERED */
+.services{padding:72px 48px;border-bottom:1px solid var(--border);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.svc{background:var(--card);padding:30px 26px;transition:background .25s;position:relative;}
+.svc:hover{background:var(--bg3);}
+.svc-num{font-size:10px;letter-spacing:2px;color:var(--muted2);font-weight:600;margin-bottom:18px;}
+.svc-ico{width:42px;height:42px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.svc-ico svg{width:20px;height:20px;stroke:var(--brand);fill:none;stroke-width:1.7;}
+.svc h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--text);margin-bottom:10px;}
+.svc p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+.svc-items{margin-top:14px;display:flex;flex-direction:column;gap:5px;}
+.svc-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;}
+.svc-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--brand);flex-shrink:0;}
+.svc-badge{position:absolute;top:16px;right:16px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+
+/* PROCESS */
+.process{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.step{background:var(--card);padding:28px 26px;position:relative;display:flex;gap:20px;align-items:flex-start;transition:background .2s;}
+.step:hover{background:var(--bg3);}
+.step-n{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--brand);line-height:1;flex-shrink:0;width:44px;}
+.step-body h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.step-body p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+
+/* STANDARDS STRIP */
+.standards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card);transition:background .3s;}
+.std{padding:28px 36px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px;}
+.std:last-child{border-right:none;}
+.std-ico{width:36px;height:36px;border-radius:6px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;}
+.std-ico svg{width:18px;height:18px;stroke:var(--brand);fill:none;stroke-width:1.8;}
+.std h4{font-size:13px;font-weight:600;color:var(--text);}
+.std p{font-size:12px;color:var(--muted);line-height:1.5;font-weight:300;}
+
+/* WHY CHOOSE */
+.why{padding:72px 48px;border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.why h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4vw,50px);font-weight:800;color:var(--text);letter-spacing:-.5px;line-height:1.05;margin-bottom:18px;}
+.why p{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:28px;}
+.why-pts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.wpt{display:flex;gap:10px;align-items:flex-start;}
+.wck{width:18px;height:18px;border-radius:3px;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.wck svg{width:10px;height:10px;stroke:var(--brand);fill:none;stroke-width:2.5;}
+.wpt strong{font-size:13px;font-weight:600;color:var(--text);display:block;margin-bottom:2px;}
+.wpt span{font-size:12px;color:var(--muted);}
+.why-cards{display:flex;flex-direction:column;gap:12px;}
+.wcard{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;transition:background .3s;}
+.wcard.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.wc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.wc-n{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:800;color:var(--brand);letter-spacing:-.5px;}
+.wc-l{font-size:11px;color:var(--muted);margin-top:2px;}
+.stars{color:var(--brand);font-size:14px;letter-spacing:2px;margin-bottom:6px;}
+.quote-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.qt{font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;}
+.qa{font-size:11px;color:var(--muted2);margin-top:7px;}
+.rb{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:var(--brand);text-align:right;white-space:nowrap;}
+.rl{font-size:11px;color:var(--muted);text-align:right;}
+
+/* INSPECTION TOOL */
+.inspection{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.insp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border);}
+.insp-left{background:var(--card);padding:36px 32px;}
+.insp-right{background:var(--bg2);padding:36px 32px;}
+.insp-intro{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:24px;}
+.insp-q{display:flex;flex-direction:column;gap:14px;}
+.q-row{display:flex;flex-direction:column;gap:6px;}
+.q-label{font-size:13px;font-weight:500;color:var(--text);}
+.q-opts{display:flex;gap:8px;flex-wrap:wrap;}
+.q-opt{padding:7px 14px;border:1px solid var(--border);border-radius:3px;font-size:12px;color:var(--muted);cursor:pointer;transition:all .2s;background:var(--bg3);}
+.q-opt:hover{border-color:var(--brand);color:var(--brand);}
+.q-opt.sel{background:var(--brand);color:#fff;border-color:var(--brand);}
+.insp-result{display:flex;flex-direction:column;gap:12px;}
+.ir-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 22px;}
+.ir-card.accent{border-color:var(--brand-border);background:var(--brand-bg);}
+.ir-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.ir-val{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--brand);line-height:1;}
+.ir-sub{font-size:12px;color:var(--muted);margin-top:5px;}
+.ir-list{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.ir-item{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--muted);}
+.ir-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0;margin-top:5px;}
+.insp-cta{width:100%;background:var(--brand);border:none;color:#fff;padding:13px;border-radius:3px;font-size:14px;font-weight:500;cursor:pointer;margin-top:4px;transition:background .2s;font-family:'DM Sans',sans-serif;}
+.insp-cta:hover{background:var(--brand-dark);}
+.insp-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+/* GALLERY TEASER */
+.gallery{padding:72px 48px;border-bottom:1px solid var(--border);}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:180px 180px;gap:8px;margin:36px 0 24px;}
+.gp{border-radius:5px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;position:relative;overflow:hidden;transition:background .3s;}
+.gp.tall{grid-row:span 2;}
+.gp svg{width:28px;height:28px;stroke:var(--border);fill:none;stroke-width:1.5;}
+.gp-lbl{font-size:10px;color:var(--muted2);letter-spacing:.5px;text-align:center;padding:0 10px;}
+.gp-cap{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.65));font-size:11px;color:rgba(255,255,255,.75);}
+.gal-cta{text-align:center;}
+
+/* TESTIMONIAL */
+.testi{padding:72px 48px;background:var(--bg2);border-bottom:1px solid var(--border);transition:background .3s;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;}
+.tc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px 20px;position:relative;transition:background .3s;}
+.tc::before{content:'\201C';font-size:64px;font-weight:900;color:rgba(232,67,26,0.07);position:absolute;top:6px;left:14px;line-height:1;font-family:serif;}
+.tc p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;position:relative;z-index:1;}
+.tc-auth{margin-top:16px;display:flex;align-items:center;gap:9px;}
+.av{width:32px;height:32px;border-radius:50%;background:var(--brand-bg);border:1px solid var(--brand-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--brand);flex-shrink:0;}
+.tc-name{font-size:13px;font-weight:600;color:var(--text);}
+.tc-loc{font-size:10px;color:var(--muted);}
+
+/* FAQ */
+.faq{padding:72px 48px;border-bottom:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-item{background:var(--card);padding:24px 26px;transition:background .2s;}
+.faq-item:hover{background:var(--bg3);}
+.faq-q{font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;}
+.faq-q::before{content:'Q';font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-bg);border:1px solid var(--brand-border);padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;padding-left:30px;}
+
+/* CTA */
+.cta{padding:72px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(232,67,26,0.06),transparent 70%);pointer-events:none;}
+.cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6vw,72px);font-weight:900;color:var(--text);letter-spacing:-1px;line-height:.95;margin-bottom:14px;}
+.cta h2 em{color:var(--brand);font-style:normal;}
+.cta p{font-size:15px;color:var(--muted);margin-bottom:32px;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-note{margin-top:20px;font-size:12px;color:var(--muted2);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px 48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;background:var(--card);transition:background .3s;}
+.foot-links{display:flex;gap:20px;list-style:none;justify-content:center;}
+.foot-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--text);}
+.foot-r{text-align:right;font-size:11px;color:var(--muted);line-height:1.7;}
+.wa-float{position:fixed;bottom:22px;right:22px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;}
+.wa-float svg{width:24px;height:24px;fill:white;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero,.danger-text,.danger-visual,.services,.process,.why,.gallery,.testi,.faq,.cta,.inspection{padding-left:24px;padding-right:24px;}
+  .hero{padding-top:48px;padding-bottom:40px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .danger{grid-template-columns:1fr;}
+  .danger-text{border-right:none;border-bottom:1px solid var(--border);padding:48px 24px;}
+  .danger-visual{padding:48px 24px;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .process-grid{grid-template-columns:1fr;}
+  .standards{grid-template-columns:1fr 1fr;}
+  .std:nth-child(2){border-right:none;}
+  .std:nth-child(3){border-top:1px solid var(--border);}
+  .std:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+  .why-grid{grid-template-columns:1fr;gap:40px;}
+  .why-pts{grid-template-columns:1fr 1fr;}
+  .insp-wrap{grid-template-columns:1fr;}
+  .insp-left{padding:28px 24px;}
+  .insp-right{padding:28px 24px;}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px;}
+  .gp.tall{grid-row:span 2;}
+  .testi-grid{grid-template-columns:1fr 1fr;}
+  .tc:last-child{grid-column:1/-1;}
+  .faq-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;text-align:center;padding:24px;}
+  .foot-r{text-align:center;}
+  .foot-links{justify-content:center;}
+  .quote-row{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  nav{padding:0 16px;height:60px;}
+  .hero{padding:36px 16px 32px;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hero-actions{flex-direction:column;}
+  .btn-p,.btn-o{justify-content:center;}
+  .danger-text,.danger-visual{padding:36px 16px;}
+  .dv-row{grid-template-columns:1fr 1fr;}
+  .svc-grid,.process-grid{grid-template-columns:1fr;}
+  .standards{grid-template-columns:1fr 1fr;}
+  .services,.process,.why,.gallery,.testi,.faq,.cta,.inspection{padding:36px 16px;}
+  .why-pts{grid-template-columns:1fr;}
+  .wc-row{grid-template-columns:1fr 1fr;}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:auto;}
+  .gp,.gp.tall{height:140px;grid-row:span 1;}
+  .testi-grid{grid-template-columns:1fr;}
+  .tc:last-child{grid-column:auto;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns .btn-p,.cta-btns .btn-o{width:100%;max-width:300px;justify-content:center;}
+  footer{padding:24px 16px;}
+  .foot-links{flex-wrap:wrap;gap:12px;justify-content:center;}
+  .q-opts{gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg width="110" height="32" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="lk" fill="#FFFFFF">K</text>
+      <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+      <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+      <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="ll" fill="#FFFFFF">lex</text>
+      <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="kolex_solar_page.html">Solar</a></li>
+    <li><a href="kolex_wiring_page.html" class="active">Wiring</a></li>
+    <li><a href="cctv.html">CCTV</a></li>
+    <li><a href="kolex_gallery_page.html">Gallery</a></li>
+    <li><a href="kolex_contact_quote_page.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="theme-toggle">
+      <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+      </div>
+      <div class="tog" id="btn-l" onclick="setTheme('light')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+      </div>
+    </div>
+    <a href="tel:+2347067448460" class="nav-cta">Get a Quote</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#">Home</a><a href="#">Solar</a>
+  <a href="#" style="color:var(--brand)">Wiring</a>
+  <a href="#">CCTV</a><a href="#">Gallery</a>
+  <a href="tel:+2347067448460" style="color:var(--brand);font-weight:600;">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    <span style="color:var(--brand)">Electrical Wiring</span>
+  </div>
+  <div class="hero-tag">Safe · Certified · Professional</div>
+  <h1>Wired Right.<br><em>First Time.</em></h1>
+  <p class="hero-sub">Professional electrical wiring for new buildings, renovations, and rewiring of existing properties across Abuja and FCT. Every job certified, every cable standard-grade.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/2347067448460" class="btn-p">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+      Get a Free Quote
+    </a>
+    <a href="#assessment" class="btn-o">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Check Your Wiring
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">200+</div><div class="hs-l">Buildings wired</div></div>
+    <div class="hs"><div class="hs-n">1–5</div><div class="hs-l">Days per project</div></div>
+    <div class="hs"><div class="hs-n">100%</div><div class="hs-l">Standard-grade cables</div></div>
+    <div class="hs"><div class="hs-n">7yr+</div><div class="hs-l">Experience in FCT</div></div>
+  </div>
+</section>
+
+<!-- DANGER / WHY IT MATTERS -->
+<section class="danger">
+  <div class="danger-text">
+    <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Why it matters</span></div>
+    <h2>Bad Wiring is a Danger You Can't See.</h2>
+    <p>Most electrical fires, electrocutions, and equipment damage in Nigerian homes and offices trace back to one root cause — substandard or poorly installed wiring. The problem is invisible until it becomes a crisis.</p>
+    <p>Whether you're building new, renovating, or living in an older property, getting your wiring assessed and done right is one of the most important safety decisions you can make.</p>
+    <div class="risk-list">
+      <div class="risk">
+        <div class="risk-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div>
+        <div><strong>Electrical fires</strong><span>Overloaded circuits and undersized cables are the leading cause of house fires in Nigeria.</span></div>
+      </div>
+      <div class="risk">
+        <div class="risk-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div><strong>Electrocution risk</strong><span>Exposed wires, ungrounded installations and missing RCDs put your family at serious risk daily.</span></div>
+      </div>
+      <div class="risk">
+        <div class="risk-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div><strong>Appliance damage</strong><span>Voltage fluctuations from poor wiring destroy refrigerators, TVs, ACs and other expensive equipment.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="danger-visual">
+    <div class="dv-card accent">
+      <div class="dv-label">Buildings inspected with wiring faults</div>
+      <div class="dv-val">7 <span>in 10</span></div>
+      <div class="dv-sub">Our engineers find faults in most existing installations across Abuja</div>
+    </div>
+    <div class="dv-row">
+      <div class="dv-card">
+        <div class="dv-label">Average job time</div>
+        <div class="dv-val">2 <span>days</span></div>
+        <div class="dv-sub">For a 3-bedroom house</div>
+      </div>
+      <div class="dv-card">
+        <div class="dv-label">Warranty on work</div>
+        <div class="dv-val">2yr <span>+</span></div>
+        <div class="dv-sub">We stand behind every job</div>
+      </div>
+    </div>
+    <div class="dv-card">
+      <div class="dv-label">What Kolex guarantees on every job</div>
+      <div class="check-list">
+        <div class="chk">Standard-grade cables throughout (no substandard wires)</div>
+        <div class="chk">Properly sized circuit breakers and fuses</div>
+        <div class="chk">Earthing/grounding on all circuits</div>
+        <div class="chk">Neat, organised cable routing and conduit</div>
+        <div class="chk">RCD protection where required</div>
+        <div class="chk">Full safety test before handover</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OFFERED -->
+<section class="services">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">What we do</span></div>
+  <h2 class="sec-h">Wiring Services for<br>Every Situation.</h2>
+  <div class="svc-grid">
+    <div class="svc">
+      <span class="svc-badge">Most Common</span>
+      <div class="svc-num">01</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3>Residential Wiring</h3>
+      <p>New houses, apartments, bungalows and duplexes wired from scratch. We work with your architect's plan and handle all electrical layouts, socket positions, lighting circuits and DB installation.</p>
+      <div class="svc-items">
+        <div class="svc-item">New builds and uncompleted structures</div>
+        <div class="svc-item">Apartments and flats</div>
+        <div class="svc-item">Bungalows and duplexes</div>
+        <div class="svc-item">Estate developments</div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/><path d="M12 12v5"/><path d="M9 15h6"/></svg></div>
+      <h3>Commercial Wiring</h3>
+      <p>Offices, shops, warehouses, schools, churches and factories wired to commercial standards. We handle three-phase power, large distribution boards, industrial sockets and heavy-load circuits.</p>
+      <div class="svc-items">
+        <div class="svc-item">Offices and corporate spaces</div>
+        <div class="svc-item">Shops and showrooms</div>
+        <div class="svc-item">Churches and event centres</div>
+        <div class="svc-item">Warehouses and factories</div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+      <h3>Rewiring & Upgrades</h3>
+      <p>Old buildings with ageing, dangerous or substandard wiring rewired completely or partially. We also upgrade undersized wiring to handle modern power demands — ACs, solar inverters, pumps.</p>
+      <div class="svc-items">
+        <div class="svc-item">Full house rewiring</div>
+        <div class="svc-item">Partial circuit upgrades</div>
+        <div class="svc-item">Adding new sockets/points</div>
+        <div class="svc-item">Load capacity upgrades</div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">04</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <h3>Distribution Board (DB) Installation</h3>
+      <p>New DB boards installed or existing ones replaced with properly labelled, correctly breaker-sized, neatly wired distribution boards — the control centre of your entire electrical system.</p>
+      <div class="svc-items">
+        <div class="svc-item">New DB installation</div>
+        <div class="svc-item">Old DB replacement</div>
+        <div class="svc-item">Breaker sizing and labelling</div>
+        <div class="svc-item">RCD and surge protection</div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">05</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <h3>Electrical Fault Finding</h3>
+      <p>Tripping breakers, flickering lights, dead sockets or burning smells? Our engineers diagnose and fix electrical faults quickly and accurately, with same-day service available.</p>
+      <div class="svc-items">
+        <div class="svc-item">Circuit fault diagnosis</div>
+        <div class="svc-item">Earth fault location</div>
+        <div class="svc-item">Tripping breaker repair</div>
+        <div class="svc-item">Same-day emergency visits</div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">06</div>
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Electrical Safety Inspection</h3>
+      <p>Comprehensive inspection of your property's wiring — ideal before moving into a new home, before buying a property, or if your installation is 10+ years old. Full written report provided.</p>
+      <div class="svc-items">
+        <div class="svc-item">Pre-purchase inspections</div>
+        <div class="svc-item">Annual safety checks</div>
+        <div class="svc-item">Written inspection report</div>
+        <div class="svc-item">Remediation recommendations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">How we work</span></div>
+  <h2 class="sec-h">Our Wiring Process.<br>No Surprises.</h2>
+  <div class="process-grid">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body">
+        <h4>Site visit & assessment</h4>
+        <p>Our engineer visits your property to understand the layout, power requirements, existing installation (if any), and the scope of work needed. This is free of charge.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-body">
+        <h4>Wiring plan & material list</h4>
+        <p>We prepare a full wiring plan — socket positions, circuit layout, DB location, cable routing — and a detailed material list with quantities and specifications.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-body">
+        <h4>Clear quotation & agreement</h4>
+        <p>You receive a written quote covering labour and materials. No hidden costs. We agree on timeline and start date before a single cable is touched.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <div class="step-body">
+        <h4>Professional installation</h4>
+        <p>Our certified electricians carry out the wiring work neatly and efficiently. Conduits are used throughout, cable routing is clean, and we keep the site tidy at all times.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">5</div>
+      <div class="step-body">
+        <h4>Testing & safety check</h4>
+        <p>Every circuit is tested before handover — insulation resistance, continuity, earth loop impedance, and RCD trip times. We confirm everything is safe and working correctly.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">6</div>
+      <div class="step-body">
+        <h4>Handover & documentation</h4>
+        <p>We hand over a completed installation with your DB clearly labelled for every circuit. You receive a wiring certificate and we remain available for any questions after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS STRIP -->
+<div class="standards">
+  <div class="std">
+    <div class="std-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    <h4>Standard-grade cables only</h4>
+    <p>We never use substandard or counterfeit cables. Every cable is sized correctly for the circuit it serves.</p>
+  </div>
+  <div class="std">
+    <div class="std-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+    <h4>On-time completion</h4>
+    <p>We agree a project timeline and keep to it. Delays cost you money — we respect that.</p>
+  </div>
+  <div class="std">
+    <div class="std-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+    <h4>Certified & documented</h4>
+    <p>Every job comes with a wiring certificate and labelled DB. Full documentation for your records.</p>
+  </div>
+  <div class="std">
+    <div class="std-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+    <h4>Clean site management</h4>
+    <p>We clean up after every day's work. Your property is left tidy and debris-free throughout the project.</p>
+  </div>
+</div>
+
+<!-- WHY CHOOSE KOLEX -->
+<section class="why">
+  <div class="why-grid">
+    <div>
+      <div class="sec-tag" style="margin-bottom:14px"><div class="sec-line"></div><span class="sec-label">Why choose us</span></div>
+      <h2>Wiring You Can Trust.<br>Engineers Who Care.</h2>
+      <p>In a market flooded with quacks and substandard work, Kolex Power Solutions stands apart. We are licensed, experienced, and proud of the quality of every job we complete — no matter the size.</p>
+      <div class="why-pts">
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Certified electricians</strong><span>Trained, qualified engineers on every job</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>No substandard cables</strong><span>Only certified, standard-grade materials</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Neat workmanship</strong><span>Cables routed cleanly in conduit throughout</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Transparent pricing</strong><span>Written quotes — no surprises on the bill</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>Safety guaranteed</strong><span>Full test and certification on every job</span></div></div>
+        <div class="wpt"><div class="wck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><strong>After-job support</strong><span>Reach us anytime after installation</span></div></div>
+      </div>
+    </div>
+    <div class="why-cards">
+      <div class="wc-row">
+        <div class="wcard"><div class="wc-n">200+</div><div class="wc-l">Buildings wired</div></div>
+        <div class="wcard"><div class="wc-n">7yr+</div><div class="wc-l">FCT experience</div></div>
+      </div>
+      <div class="wcard quote-row">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="qt">"Kolex wired our entire 3-floor office building. The work was incredibly neat — management was impressed. No faults after 14 months."</p>
+          <div class="qa">— Mr. Emeka Obi, Wuse II, Abuja · Commercial wiring</div>
+        </div>
+        <div><div class="rb">5.0</div><div class="rl">Rating</div></div>
+      </div>
+      <div class="wcard accent">
+        <div class="dv-label" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">RC Number</div>
+        <div style="font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;color:var(--brand);">9344845</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">CAC Registered · Licensed to operate in Nigeria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-ASSESSMENT TOOL -->
+<section class="inspection" id="assessment">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Self-assessment</span></div>
+  <h2 class="sec-h">Does Your Building<br>Need Rewiring?</h2>
+  <div class="insp-wrap">
+    <div class="insp-left">
+      <p class="insp-intro">Answer these quick questions to get an indication of whether your wiring needs attention.</p>
+      <div class="insp-q">
+        <div class="q-row">
+          <div class="q-label">How old is the building's wiring?</div>
+          <div class="q-opts">
+            <div class="q-opt sel" data-group="age" data-score="0" onclick="pick(this,'age',0)">Under 5 years</div>
+            <div class="q-opt" data-group="age" data-score="1" onclick="pick(this,'age',1)">5–15 years</div>
+            <div class="q-opt" data-group="age" data-score="3" onclick="pick(this,'age',3)">Over 15 years</div>
+            <div class="q-opt" data-group="age" data-score="2" onclick="pick(this,'age',2)">Not sure</div>
+          </div>
+        </div>
+        <div class="q-row">
+          <div class="q-label">Do your circuit breakers trip frequently?</div>
+          <div class="q-opts">
+            <div class="q-opt sel" data-group="trip" data-score="0" onclick="pick(this,'trip',0)">Never</div>
+            <div class="q-opt" data-group="trip" data-score="1" onclick="pick(this,'trip',1)">Occasionally</div>
+            <div class="q-opt" data-group="trip" data-score="3" onclick="pick(this,'trip',3)">Often</div>
+          </div>
+        </div>
+        <div class="q-row">
+          <div class="q-label">Have you noticed flickering lights or burning smells?</div>
+          <div class="q-opts">
+            <div class="q-opt sel" data-group="flicker" data-score="0" onclick="pick(this,'flicker',0)">No</div>
+            <div class="q-opt" data-group="flicker" data-score="2" onclick="pick(this,'flicker',2)">Sometimes</div>
+            <div class="q-opt" data-group="flicker" data-score="4" onclick="pick(this,'flicker',4)">Yes</div>
+          </div>
+        </div>
+        <div class="q-row">
+          <div class="q-label">Are there exposed wires or damaged sockets?</div>
+          <div class="q-opts">
+            <div class="q-opt sel" data-group="exposed" data-score="0" onclick="pick(this,'exposed',0)">No</div>
+            <div class="q-opt" data-group="exposed" data-score="3" onclick="pick(this,'exposed',3)">A few</div>
+            <div class="q-opt" data-group="exposed" data-score="5" onclick="pick(this,'exposed',5)">Several</div>
+          </div>
+        </div>
+        <div class="q-row">
+          <div class="q-label">Do you plan to add an AC, solar, or borehole pump?</div>
+          <div class="q-opts">
+            <div class="q-opt sel" data-group="upgrade" data-score="0" onclick="pick(this,'upgrade',0)">No plans</div>
+            <div class="q-opt" data-group="upgrade" data-score="1" onclick="pick(this,'upgrade',1)">Maybe</div>
+            <div class="q-opt" data-group="upgrade" data-score="2" onclick="pick(this,'upgrade',2)">Yes, soon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="insp-right">
+      <p class="insp-intro">Your wiring assessment result will appear here based on your answers.</p>
+      <div class="insp-result">
+        <div class="ir-card accent">
+          <div class="ir-label">Your assessment result</div>
+          <div class="ir-val" id="result-title">All Clear</div>
+          <div class="ir-sub" id="result-sub">Your wiring appears to be in good condition based on your answers.</div>
+        </div>
+        <div class="ir-card">
+          <div class="ir-label">Recommended actions</div>
+          <div class="ir-list" id="result-list">
+            <div class="ir-item">Schedule a routine inspection in 2–3 years</div>
+            <div class="ir-item">Ensure your DB is clearly labelled</div>
+            <div class="ir-item">Check RCD protection is fitted</div>
+          </div>
+        </div>
+        <div class="ir-card">
+          <div class="ir-label">Risk level</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+            <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
+              <div id="risk-bar" style="height:100%;background:var(--brand);border-radius:4px;width:10%;transition:width .5s;"></div>
+            </div>
+            <span id="risk-pct" style="font-size:13px;font-weight:600;color:var(--brand);min-width:36px;">Low</span>
+          </div>
+        </div>
+        <button class="insp-cta" onclick="openWAAssess()">Book a free professional inspection ↗</button>
+        <p class="insp-note">This is a rough self-assessment only. A proper electrical inspection by our certified engineer will give you an accurate picture. Book a free visit — no obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Our work</span></div>
+  <h2 class="sec-h">Neat. Professional.<br>Every Single Job.</h2>
+  <div class="gal-grid">
+    <div class="gp tall">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      <div class="gp-lbl">Distribution board</div>
+      <div class="gp-cap">DB installation · Wuse II</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      <div class="gp-lbl">House wiring</div>
+      <div class="gp-cap">New build · Gwarinpa</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
+      <div class="gp-lbl">Commercial fit-out</div>
+      <div class="gp-cap">Office wiring · Maitama</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="gp-lbl">Conduit routing</div>
+      <div class="gp-cap">Neat conduit run · Jabi</div>
+    </div>
+    <div class="gp">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <div class="gp-lbl">Fault finding</div>
+      <div class="gp-cap">Rewire after fault · Kubwa</div>
+    </div>
+  </div>
+  <div class="gal-cta">
+    <a href="#" class="btn-o">View Full Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" style="display:inline;vertical-align:middle;margin-left:4px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Client reviews</span></div>
+  <h2 class="sec-h">What Our Clients Say.</h2>
+  <div class="testi-grid">
+    <div class="tc">
+      <div class="stars">★★★★★</div>
+      <p>Kolex wired our entire 3-floor building in under a week. Very neat and well organised. They even cleaned up after each day's work. Highly recommend.</p>
+      <div class="tc-auth"><div class="av">CI</div><div><div class="tc-name">Mrs. Chiamaka Ibe</div><div class="tc-loc">Gwarinpa, Abuja · House wiring</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="stars">★★★★★</div>
+      <p>We had constant tripping issues and burning smells. Kolex diagnosed the fault within 30 minutes and rewired the affected section the same day. Excellent.</p>
+      <div class="tc-auth"><div class="av">BB</div><div><div class="tc-name">Mr. Babatunde Bello</div><div class="tc-loc">Wuse II, Abuja · Fault repair</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="stars">★★★★★</div>
+      <p>They wired our new church auditorium — including stage lighting, PA power and HVAC circuits. Clean work, professional crew, finished two days ahead of schedule.</p>
+      <div class="tc-auth"><div class="av">PO</div><div><div class="tc-name">Pastor Oluwaseun Adeyemi</div><div class="tc-loc">Kubwa, Abuja · Commercial wiring</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="sec-tag"><div class="sec-line"></div><span class="sec-label">Common questions</span></div>
+  <h2 class="sec-h">Wiring FAQs —<br>Answered Simply.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">How long does wiring a house take?</div>
+      <div class="faq-a">A standard 3-bedroom house typically takes 3–5 days. Larger or more complex properties may take longer. We'll give you a clear timeline in your quote.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need to vacate the building during wiring?</div>
+      <div class="faq-a">For new builds, no. For occupied properties undergoing rewiring, we work room by room to minimise disruption. Power will be off to sections being worked on only.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What cables and materials do you use?</div>
+      <div class="faq-a">We use only standard-grade, certified cables (never substandard or counterfeit wires). All breakers, sockets, conduits and accessories are quality-brand components.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can you wire for solar at the same time?</div>
+      <div class="faq-a">Yes — and we strongly recommend it. We can design and install your electrical wiring to be solar-ready from the start, saving you cost and disruption later.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you provide a certificate after the job?</div>
+      <div class="faq-a">Yes. Every completed job is issued a wiring completion certificate confirming the installation has been tested and is safe. Your DB will also be fully labelled.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can you add more sockets or power points to my existing home?</div>
+      <div class="faq-a">Absolutely. Adding sockets, light fittings, outdoor points or dedicated circuits (for AC or appliances) is a common job we carry out quickly and neatly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="sec-tag" style="justify-content:center;margin-bottom:14px;"><div class="sec-line"></div><span class="sec-label">Ready to start?</span><div class="sec-line"></div></div>
+  <h2>Get Your Building<br><em>Wired Right.</em></h2>
+  <p>Free site visit and quote — no commitment, no hidden charges. Just honest, expert electrical work.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/2347067448460" class="btn-p">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+      WhatsApp Us Now
+    </a>
+    <a href="tel:+2347067448460" class="btn-o">Call +234 706 744 8460</a>
+    <a href="tel:+2347057326269" class="btn-o">Call +234 705 732 6269</a>
+  </div>
+  <div class="cta-note">kolexpowersolutions@gmail.com · Shop H2G211, Wuye Market, Abuja, FCT</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="100" height="30" viewBox="0 0 270 78" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fk" fill="#FFFFFF">K</text>
+    <circle cx="110" cy="34" r="28" fill="#E8431A"/>
+    <polygon points="116,14 100,38 112,38 104,58 122,30 110,30 120,14" fill="white"/>
+    <text x="136" y="58" font-family="'Segoe UI',Arial,sans-serif" font-weight="900" font-size="64" id="fl" fill="#FFFFFF">lex</text>
+    <text x="4" y="73" font-family="'Segoe UI',Arial,sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="5">POWER SOLUTIONS</text>
+  </svg>
+  <ul class="foot-links">
+    <li><a href="#">Home</a></li><li><a href="#">Solar</a></li><li><a href="#">Wiring</a></li><li><a href="#">CCTV</a></li><li><a href="#">Gallery</a></li><li><a href="#">Contact</a></li>
+  </ul>
+  <div class="foot-r">RC: 9344845 · CAC Registered<br>© 2025 Kolex Power Solutions Ltd · Abuja, FCT</div>
+</footer>
+
+<a href="https://wa.me/2347067448460" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.852 1.425 5.468L2 22l4.644-1.218A9.966 9.966 0 0012 22c5.523 0 10-4.478 10-10.001C22 6.476 17.522 2 12 2z"/></svg>
+</a>
+
+<script>
+const scores={age:0,trip:0,flicker:0,exposed:0,upgrade:0};
+function pick(el,group,score){
+  document.querySelectorAll('[data-group="'+group+'"]').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  scores[group]=score;
+  calculate();
+}
+function calculate(){
+  const total=Object.values(scores).reduce((a,b)=>a+b,0);
+  const max=17;
+  const pct=Math.round((total/max)*100);
+  let title,sub,actions,risk;
+  if(total<=2){
+    title='All Clear';sub='Your wiring appears to be in good condition.';
+    actions=['Schedule a routine inspection in 2–3 years','Ensure your DB is clearly labelled','Check RCD protection is fitted'];
+    risk='Low';
+  } else if(total<=6){
+    title='Attention Advised';sub='Some indicators suggest a professional check is worthwhile.';
+    actions=['Book a safety inspection within 6 months','Check all socket covers are intact','Confirm your DB breakers are correctly sized'];
+    risk='Moderate';
+  } else if(total<=11){
+    title='Inspection Needed';sub='Several warning signs detected. We recommend a professional inspection soon.';
+    actions=['Book an urgent safety inspection','Do not ignore flickering or burning smells','Avoid overloading circuits until inspected'];
+    risk='High';
+  } else {
+    title='Urgent Attention';sub='Your answers indicate potentially dangerous wiring conditions. Please act promptly.';
+    actions=['Contact us immediately for emergency inspection','Avoid using high-load appliances until checked','Check your main breaker is not showing signs of burning'];
+    risk='Critical';
+  }
+  document.getElementById('result-title').textContent=title;
+  document.getElementById('result-sub').textContent=sub;
+  document.getElementById('risk-bar').style.width=Math.max(8,pct)+'%';
+  document.getElementById('risk-bar').style.background=total<=2?'#4ade80':total<=6?'#facc15':total<=11?'#fb923c':'#ef4444';
+  document.getElementById('risk-pct').textContent=risk;
+  document.getElementById('risk-pct').style.color=total<=2?'#4ade80':total<=6?'#facc15':total<=11?'#fb923c':'#ef4444';
+  const list=document.getElementById('result-list');
+  list.innerHTML=actions.map(a=>'<div class="ir-item">'+a+'</div>').join('');
+}
+function openWAAssess(){
+  const total=Object.values(scores).reduce((a,b)=>a+b,0);
+  const title=document.getElementById('result-title').textContent;
+  const msg='Hello Kolex Power Solutions! I just used your wiring self-assessment tool and got result: *'+title+'*. I would like to book a free professional inspection. Please advise on availability.';
+  window.open('https://wa.me/2347067448460?text='+encodeURIComponent(msg),'_blank');
+}
+function setTheme(t){
+  document.body.className=t;
+  document.getElementById('btn-d').className='tog'+(t==='dark'?' on':'');
+  document.getElementById('btn-l').className='tog'+(t==='light'?' on':'');
+  const c=t==='dark'?'#FFFFFF':'#181818';
+  ['lk','ll','fk','fl'].forEach(id=>{const e=document.getElementById(id);if(e)e.setAttribute('fill',c);});
+}
+function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');}
+document.body.className='dark';
+</script>
+</body>
+</html>
