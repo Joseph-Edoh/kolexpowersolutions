@@ -251,6 +251,10 @@ footer{border-top:1px solid var(--border);padding:36px 48px;transition:backgroun
   .foot-bottom{flex-direction:column;align-items:flex-start;}
 }
 @media(max-width:600px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .theme-toggle{display:none;}
+  .nav-cta{display:none;}
   nav{padding:0 16px;height:60px;}
   .hero{padding:36px 16px 32px;}
   .p-row{grid-template-columns:1fr 1fr;}
@@ -265,6 +269,14 @@ footer{border-top:1px solid var(--border);padding:36px 48px;transition:backgroun
   .foot-top{grid-template-columns:1fr;gap:24px;}
   .foot-bottom{flex-direction:column;align-items:flex-start;gap:6px;}
   .social-links{flex-wrap:wrap;}
+  .mobile-menu{
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100vw;
+    box-sizing:border-box;
+    z-index:9999;
+  }
 }
 @media(max-width:480px){
   nav{padding:0 8px;}
@@ -326,6 +338,14 @@ footer{border-top:1px solid var(--border);padding:36px 48px;transition:backgroun
   <a href="index.html">Home</a><a href="kolex_solar_page.html">Solar</a><a href="kolex_wiring_page.html">Wiring</a><a href="cctv.html">CCTV</a><a href="kolex_gallery_page.html">Gallery</a>
   <a href="kolex_contact_quote_page.html" style="color:var(--brand)">Contact</a>
   <a href="https://wa.me/2347067448460" style="color:var(--brand);font-weight:600;">WhatsApp Us</a>
+  <div class="theme-toggle" style="margin-top:10px;padding:10px 0;border-top:1px solid var(--border);">
+    <div class="tog on" id="btn-d" onclick="setTheme('dark')">
+      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>Dark
+    </div>
+    <div class="tog" id="btn-l" onclick="setTheme('light')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Light
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
